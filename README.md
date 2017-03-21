@@ -14,15 +14,15 @@ such as:
 User intent is to invest on the company, highlighting key elements for investment decision making
 
 Main page:
-  Single search bar (similar to Google)
-  Searches though list of companies that match search
-  Selecting a company will generate a report
-  Add report to account button
-  User accounts
+  - Single search bar (similar to Google)
+  - Searches though list of companies that match search
+  - Selecting a company will generate a report
+  - Add report to account button
+  - User accounts
   
 Result Page:
-  Report page for company
-  Takes JSON and converts to readable information
-  Investment reports
-  Stock quotes
-  News
+  - Report page for company
+  - Takes JSON and converts to readable information
+  - Investment reports
+  - Stock quotes
+  - News
