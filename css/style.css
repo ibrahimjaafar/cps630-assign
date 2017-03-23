@@ -19,6 +19,7 @@ body {
 
 form > label {
 	font-size: 3em;
+	font-family: 'Merriweather', serif;
 }
 
 input[type=text] {
