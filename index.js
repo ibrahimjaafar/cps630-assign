@@ -55,7 +55,30 @@ app.get('/investorsreport', function (req, res) {
 app.get('/investorsreport/css/style.css', function (req, res) {
 	res.sendFile(__dirname + '/public/css/style.css');
 });
-app.post('/investorsreport', function (req, res) {});
+app.post('/investorsreport', function (req, res) {
+	console.log("POST");
+	if (req.body.username == '' || req.body.password == '') {
+		res.redirect('back');
+		console.log("Fields cannot be null");
+	} else {
+		var user = req.body.username;
+		var pass = req.body.password;
+		connection.query('SELECT pass, salt from users where user = ?', user, function(err, result) {
+			if(err) {
+			} else {
+				var resultPass = result[0].pass;
+				var resultSalt = result[0].salt;
+				var passD = checkHashPassword(pass, resultSalt);
+				if (passD == resultPass) {
+					console.log('Success');
+				} else {
+					console.log('Unsuccessful');
+				}
+			}
+		});
+		res.sendFile(__dirname + '/public/index.html');
+	}
+});
 app.listen(process.env.PORT || 3001, function () {
 	console.log('Listening on port' + (process.env.PORT || 3001))
 });
