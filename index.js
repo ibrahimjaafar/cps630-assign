@@ -50,29 +50,45 @@ connection.connect(function (err) {
 });
 /* Server */
 app.get('/investorsreport', function (req, res) {
+	console.log('GET');
 	res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/investorsreport/css/style.css', function (req, res) {
 	res.sendFile(__dirname + '/public/css/style.css');
 });
-app.post('/investorsreport', function (req, res) {
+
+app.post('/investorsreport/login', function (req, res) {
 	console.log("POST");
+	console.log(res.body);
 	if (req.body.username == '' || req.body.password == '') {
 		res.redirect('back');
 		console.log("Fields cannot be null");
 	} else {
+		console.log('Querying');
 		var user = req.body.username;
 		var pass = req.body.password;
-		connection.query('SELECT pass, salt from users where user = ?', user, function(err, result) {
+		console.log(user);
+		console.log(pass);
+		connection.query('SELECT password, salt from users where username = ?', user, function(err, result) {
 			if(err) {
+				console.log("Error Querying");
+				throw err;
 			} else {
-				var resultPass = result[0].pass;
-				var resultSalt = result[0].salt;
-				var passD = checkHashPassword(pass, resultSalt);
-				if (passD == resultPass) {
-					console.log('Success');
+				console.log("Executing Query");
+				if(result.length > 0) {
+					var resultPass = result[0].password;
+					var resultSalt = result[0].salt;
+					console.log("here");
+					var passD = checkHashPassword(pass, resultSalt);
+					console.log(passD);
+					console.log(resultPass);
+					if (passD == resultPass) {
+						console.log('Success');
+					} else {
+						console.log('Unsuccessful');
+					}
 				} else {
-					console.log('Unsuccessful');
+					console.log("Could not find user");
 				}
 			}
 		});
