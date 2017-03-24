@@ -12,6 +12,66 @@ body {
 	*/
 }
 
+nav {
+	padding: 1em;
+	height: 3em;
+}
+
+nav > img {
+	width: 50px;
+	height: 50px;
+	float: right;
+	border: 1px solid #dddddd;
+	border-radius: 50%;
+}
+
+main {
+	margin-top: -5em;
+	z-index: 0;
+}
+
+#loginform {
+	display: none;
+	position: absolute;
+	top: 4em;
+	left: 0;
+	margin: 1em;
+	padding-top: 1em;
+	background-color: #dddddd;
+	z-index: 1;
+}
+
+#login {
+	display: table-cell;
+	text-align: center;
+	padding: 1em;
+	border: 1px solid #dddddd;
+}
+
+#user,
+#pass {
+	display: block;
+	margin: 0 auto;
+	color: #777777;
+	width: 70vw;
+	font-size: 1.5em;
+}
+
+#login > input[type="button"] {
+	position: relative;
+	border: 1px solid #dddddd;
+	border-radius: 0.2em;
+	background-color: #f3f3f3;
+	color: #777777;
+	width: 70vw;
+	font-size: 1.5em;
+}
+
+li > input[type="button"]:hover {
+	border: 1px solid black;
+	color: black;
+}
+
 #SearchDiv {
 	display: table;
 	width: 100%;
@@ -29,7 +89,7 @@ form > label {
 	font-family: 'Merriweather', serif;
 }
 
-input[type=text] {
+#SearchBar > input[type=text] {
 	display: block;
 	margin: 0 auto;
 	width: 70vw;
@@ -38,7 +98,7 @@ input[type=text] {
 	font-size: 1em;
 }
 
-input[type=submit] {
+#SearchBar > input[type=submit] {
 	display: block;
 	margin: 0 auto;
 	margin-top: 0.5em;
@@ -50,7 +110,7 @@ input[type=submit] {
 	font-size: 1.5em;
 }
 
-input[type=submit]:hover {
+#SearchBar > input[type=submit]:hover {
 	border: 1px solid black;
 	color: black;
 }

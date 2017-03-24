@@ -2,10 +2,20 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/style.css"> </head>
-<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> </head>
 
 <body>
+	<nav> <img id="profile" src="img/profile.png">
+		<div id="loginform" style="display: none">
+			<form id="login" method="POST" action="/investorsreport">
+				<input id="user" type="text" name="username" placeholder="Username">
+				<input id="pass" type="password" name="password" placeholder="Password">
+				<input type="button" value="Login">
+				<input type="button" value="Signup"> </form>
+		</div>
+	</nav>
 	<main>
 		<div id="SearchDiv">
 			<form id="SearchBar">
@@ -15,6 +25,21 @@
 		</div>
 	</main>
 	<footer> </footer>
+	<script>
+		var profile = document.getElementById("profile");
+		profile.onclick = function () {
+			var login = document.getElementById("loginform");
+			console.log(login.style.display);
+			if (login.style.display !== 'none') {
+				console.log("Change to none");
+				login.style.display = 'none';
+			}
+			else {
+				console.log('Displayed true');
+				login.style.display = 'table';
+			}
+		}
+	</script>
 </body>
 
 </html>
