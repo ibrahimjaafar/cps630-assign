@@ -1,11 +1,27 @@
-
+window.onload = function () {
+    var url = document.location.href,
+        params = url.split('?')[1].split('&'),
+        data = {}, tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+         tmp = params[i].split('=');
+         data[tmp[0]] = tmp[1];
+    }
+	$.getJSON("mapping.json", function(res) {
+  for (i = 0; i<res.Records.length; i++){
+	 if (res.Records[i].Name.toLowerCase().includes(data.company.toLowerCase())){
+		 return getData(res.Records[i].Ticker);
+	 }
+		 
+  }
+});
+}
 function getData(company){
 	var api = "https://www.quandl.com/api/v3/datasets/WIKI/"+company+".json?rows=7&api_key=dBzpDKhzBgcGovsMFx-f";
 	var xmlhttp = new XMLHttpRequest();
 	var xmlhttp2 = new XMLHttpRequest();
 	var resp;
-
-
+	
+	//alert(company);
 	xmlhttp.onreadystatechange = function(){
 		if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200){
 
@@ -116,15 +132,5 @@ function getData(company){
 
 
 }
-getData("GOOG");
-
-getCompany = function (){
-	var x = document.getElementById("frm1");
-    var text = "";
-    var i;
-    text = x.elements[0].value;
-	var company = text;
-
-	getData(company);
-}
+//getData();
 
