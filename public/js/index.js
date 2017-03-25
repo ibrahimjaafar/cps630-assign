@@ -1,12 +1,11 @@
 
 function getData(company){
 	var api = "https://www.quandl.com/api/v3/datasets/WIKI/"+company+".json?rows=7&api_key=dBzpDKhzBgcGovsMFx-f";
-	
 	var xmlhttp = new XMLHttpRequest();
-	var jsonResponse;
+	var xmlhttp2 = new XMLHttpRequest();
 	var resp;
 
-	
+
 	xmlhttp.onreadystatechange = function(){
 		if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200){
 
@@ -49,7 +48,8 @@ function getData(company){
 		};
 
 
-		var myBarChart = Chart.Bar(canvas,{
+		var highlowgraph = Chart.Bar(canvas,{
+			
 			data:data,
 			options:option
 			});
@@ -82,17 +82,41 @@ function getData(company){
 			data:data2,
 			options:option
 		});
-		
+		//
+		var lastdaygraph = document.getElementById("lastday").getContext("2d");
+		var data3 = {
+			labels: [resp.dataset.column_names[1],resp.dataset.column_names[2],resp.dataset.column_names[3],resp.dataset.column_names[4]],
+			datasets: [{
+			label: "in USD",
+			data: [resp.dataset.data[0][1], resp.dataset.data[0][2], resp.dataset.data[0][3], resp.dataset.data[0][4]],
+			backgroundColor: ["#111111", "#111111","#111111","#111111"],
+			hoverBackgroundColor: ["#333333","#333333","#333333","#333333"]
+			}]
+		};
 
-      
+		var lastdaychart = new Chart(lastdaygraph, {
+			type: 'horizontalBar',
+			data: data3,
+			options: {
+			scales: {
+            xAxes: [{
+                ticks: {					
+                }
+            }],
+            yAxes: [{
+            	stacked: true
+            }]
+			}
+		}
+	});
 	}}
 	
 	xmlhttp.open("GET", api, true);
 	xmlhttp.send();
- 
+
 
 }
-getData("AAPL");
+getData("GOOG");
 
 getCompany = function (){
 	var x = document.getElementById("frm1");
