@@ -9,9 +9,13 @@ window.onload = function () {
 	$.getJSON("mapping.json", function(res) {
   for (i = 0; i<res.Records.length; i++){
 	 if (res.Records[i].Name.toLowerCase().includes(data.company.toLowerCase())){
-		 return getData(res.Records[i].Ticker);
+			document.getElementById('cname').innerHTML = res.Records[i].Name ;
+		return getData(res.Records[i].Ticker);
 	 }
-		 
+		else if (res.Records[i].Ticker.toLowerCase().includes(data.company.toLowerCase())) {
+			document.getElementById('cname').innerHTML = res.Records[i].Name ;
+		return getData(res.Records[i].Ticker);
+		}
   }
 });
 }
