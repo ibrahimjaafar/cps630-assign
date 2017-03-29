@@ -53,10 +53,24 @@ app.get('/investorsreport', function (req, res) {
 	console.log('GET');
 	res.sendFile(__dirname + '/public/index.html');
 });
+app.get('/investorsreport/report.html', function(req, res) {
+	res.sendFile(__dirname + '/public/report.html');
+});
 app.get('/investorsreport/css/style.css', function (req, res) {
 	res.sendFile(__dirname + '/public/css/style.css');
 });
-
+app.get('/investorsreport/img/profile.png', function (req, res) {
+	res.sendFile(__dirname + '/public/img/profile.png');
+});
+app.get('/investorsreport/css/main.css', function (req, res) {
+	res.sendFile(__dirname + '/public/css/main.css');
+});
+app.get('/investorsreport/js/index.js', function (req, res) {
+	res.sendFile(__dirname + '/public/js/index.js');
+});
+app.get('/investorsreport/mapping.json', function (req, res) {
+	res.sendFile(__dirname + '/public/mapping.json');
+});
 app.post('/investorsreport/login', function (req, res) {
 	console.log("POST");
 	console.log(res.body);
