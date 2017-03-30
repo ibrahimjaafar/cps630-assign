@@ -1,4 +1,4 @@
-# cps630-assign
+# rganado.ca/investorsreport
 
 Name: The Investors Report
 Languages: HTML, CSS, Javascript, JSON, JQuery
