@@ -8,8 +8,11 @@ window.onload = function () {
     }
 	$.getJSON("mapping.json", function(res) {
   for (i = 0; i<res.Records.length; i++){
-	 if (res.Records[i].Name.toLowerCase().includes(data.company.toLowerCase())){
+	
+	 if (res.Records[i].Name.toLowerCase().includes(data.company.toLowerCase().split("+", 1))){
+			
 			document.getElementById('cname').innerHTML = res.Records[i].Name ;
+			document.getElementById('logo').src = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
 		return getData(res.Records[i].Ticker);
 	 }
 		else if (res.Records[i].Ticker.toLowerCase().includes(data.company.toLowerCase())) {
