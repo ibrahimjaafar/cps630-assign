@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="application/javascript">
+			function myFunc()
+			{
+				document.getElementById("tst").innerHTML = document.getElementById("fName").value;
+			}
+		</script>
+		<style>
+			.formBlock{
+				margin: auto;
+				width: 30%;
+				transform: translateY(30%);
+				border: 0px solid black;
+				padding: 10px ;
+				background-color: WhiteSmoke;
+			}
+			
+			.centre{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<form class="formBlock">
+			<p style="text-align:center;">Create Account</p>
+			<label>Name</label><br>
+			<input id="fName" type="text" placeholder="First Name"> <input id="lName" type="text" placeholder="Last Name"><br><br>
+			<label>User Name</label><br>
+			<input id="userName" type="text" placeholder="Choose your username"><br><br>
+			<label>Password</label><br>
+			<input id="password" type="text" placeholder="Enter a password"><br><br>
+			<label>Re-Enter the Password</label><br>
+			<input id="conf_pass" type="text" placeholder="Comfirm your password"><br><br>
+			<div class="centre"><input type="button" value="Sign Up" onclick="myFunc()"/></div><br><br>
+			<div>Already Have an Account? <a href="index.html" style="text-decoration:none;">Sign In</a></div>
+		</form>
+	
+		<div id="tst"></div>
+	</body>
+	
+</html>
