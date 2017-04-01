@@ -6,6 +6,7 @@ window.onload = function () {
          tmp = params[i].split('=');
          data[tmp[0]] = tmp[1];
     }
+
 	$.getJSON("mapping.json", function(res) {
   for (i = 0; i<res.Records.length; i++){
 	
@@ -13,11 +14,15 @@ window.onload = function () {
 			
 			document.getElementById('cname').innerHTML = res.Records[i].Name ;
 			document.getElementById('logo').src = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
-		return getData(res.Records[i].Ticker);
+		getData(res.Records[i].Ticker);
+		
+		getNews(res.Records[i].Name.toLowerCase().split(" ", 1));
+		return;
 	 }
 		else if (res.Records[i].Ticker.toLowerCase().includes(data.company.toLowerCase())) {
 			document.getElementById('cname').innerHTML = res.Records[i].Name ;
-		return getData(res.Records[i].Ticker);
+		getData(res.Records[i].Ticker);
+		return;
 		}
   }
 });
@@ -28,7 +33,7 @@ function getData(company){
 	var xmlhttp2 = new XMLHttpRequest();
 	var resp;
 	
-	//alert(company);
+	
 	xmlhttp.onreadystatechange = function(){
 		if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200){
 
@@ -138,6 +143,53 @@ function getData(company){
 	xmlhttp.send();
 
 
+}
+function getNews(company){
+	var api = "https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=microsoft&count=10&offset=0&mkt=en-us&safeSearch=Moderate";
+	var xmlhttp = new XMLHttpRequest();
+	var apiKey = "{6ca6cf01dc814891bf61287c30578eb1}";
+	var xmlhttp2 = new XMLHttpRequest();
+	var resp;
+		   $(function() {
+        var params = {
+            // Request parameters
+            "q": company.toString() + "stock",
+            "count": "10",
+            "offset": "0",
+            "mkt": "en-us",
+            "safeSearch": "Moderate",
+        };
+      
+        $.ajax({
+            url: "https://api.cognitive.microsoft.com/bing/v5.0/news/search?" + $.param(params),
+            beforeSend: function(xhrObj){
+                // Request headers
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6ca6cf01dc814891bf61287c30578eb1");
+            },
+            type: "GET",
+            // Request body
+            data: "{body}",
+        })
+        .done(function(data) {
+			
+		for (i = 0; i < 6; i++){	
+		var url = "\""+data.value[i].url+"\"";
+		var name = data.value[i].name;
+		
+		var imgUrl = data.value[i].image;
+		alert(imgUrl);
+		var description = data.value[i].description;
+		document.getElementsByTagName("section")[i].innerHTML += "<a href="+url+">" + name + "</a>"
+		
+		document.getElementsByTagName("section")[i].innerHTML += "<p>" + description +"</p>";
+		
+		}
+        })
+        .fail(function() {
+            alert("Could not load news articles");
+        });
+    });
+	
 }
 //getData();
 
