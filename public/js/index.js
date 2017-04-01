@@ -177,7 +177,7 @@ function getNews(company){
 		var name = data.value[i].name;
 		
 		var imgUrl = data.value[i].image;
-		alert(imgUrl);
+		//alert(imgUrl);
 		var description = data.value[i].description;
 		document.getElementsByTagName("section")[i].innerHTML += "<a href="+url+">" + name + "</a>"
 		
@@ -186,7 +186,7 @@ function getNews(company){
 		}
         })
         .fail(function() {
-            alert("Could not load news articles");
+            //alert("Could not load news articles");
         });
     });
 	
