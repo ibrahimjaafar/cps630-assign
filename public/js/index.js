@@ -176,9 +176,11 @@ function getNews(company){
 		var url = "\""+data.value[i].url+"\"";
 		var name = data.value[i].name;
 		var date = data.value[i].datePublished;
-		var imgUrl = data.value[i].image;
+		var imgUrl = data.value[i].image.thumbnail.contentUrl;
 		//alert(imgUrl);
 		var description = data.value[i].description;
+		document.getElementsByTagName("section")[i].innerHTML += "<img src="+imgUrl+" alt='image'>"
+
 		document.getElementsByTagName("section")[i].innerHTML += "<a href="+url+">" + name + "</a>"
 		
 		document.getElementsByTagName("section")[i].innerHTML += "<p>" + description +"</p>";
