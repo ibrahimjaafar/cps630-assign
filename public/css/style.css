@@ -1,10 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
 html,
 body {
-		font-family: 'Open Sans',serif;
-
+	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -17,7 +15,9 @@ body {
 	*/
 text-align:center;
 }
-
+h1{
+font-size: 65px;
+}
 nav {
 	padding: 1em;
 	height: 3em;
@@ -71,7 +71,6 @@ main {
 	color: #777777;
 	width: 70vw;
 	font-size: 1.5em;
-	    border-radius: 50px;
 }
 
 #login > input[type="submit"]:hover {
@@ -114,6 +113,9 @@ form > label {
 	color: #777777;
 	width: 20vw;
 	font-size: 1.5em;
+	    outline: none;
+
+    border-radius: 50px;
 }
 
 #SearchBar > input[type=submit]:hover {
@@ -121,7 +123,7 @@ form > label {
 	color: black;
 }
 input[type=text] {
-font-size: 18px;
+font-size: 22px;
     padding:15px; 
     border:2px solid #ccc; 
     -webkit-border-radius: 10px;
@@ -129,12 +131,17 @@ font-size: 18px;
     outline: none;
 	text-align: center;
 margin: auto;
+box-shadow: 5px 5px 5px #888888;
+transition:box-shadow .5s;
 }
 
 input[type=text]:focus {
-    border-color:#4286f4;
+    border-color:blue;
     outline: none;
+	box-shadow: 10px 10px 10px #888888;
+
 }
+
 ::-webkit-input-placeholder {
 	text-align: center;
 }
