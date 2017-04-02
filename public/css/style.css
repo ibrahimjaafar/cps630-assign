@@ -1,5 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
 html,
 body {
+		font-family: 'Open Sans',serif;
+
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -10,6 +15,7 @@ body {
 	background-size: 800px 400px;
 	background-repeat: no-repeat;
 	*/
+text-align:center;
 }
 
 nav {
@@ -95,7 +101,6 @@ form > label {
 	width: 70vw;
 	height: 2em;
 	line-height: 1em;
-	font-size: 1em;
 }
 
 #SearchBar > input[type=submit] {
@@ -114,7 +119,21 @@ form > label {
 	border: 1px solid black;
 	color: black;
 }
+input[type=text] {
+font-size: 18px;
+    padding:15px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 10px;
+    border-radius: 50px;
+    outline: none;
+	text-align: center;
+margin: auto;
+}
 
+input[type=text]:focus {
+    border-color:#4286f4;
+    outline: none;
+}
 ::-webkit-input-placeholder {
 	text-align: center;
 }
