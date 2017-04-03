@@ -8,24 +8,43 @@ window.onload = function () {
     }
 	
 	$.getJSON("mapping.json", function(res) {
+		
+		var companyName, companySrc, companyTicker;
   for (i = 0; i<res.Records.length; i++){
 	
 	 if (res.Records[i].Name.toLowerCase().includes(data.company.toLowerCase().split("+", 1))){
 			
-			document.getElementById('cname').innerHTML = res.Records[i].Name ;
-			document.getElementById('companyOne').value= res.Records[i].Name ;
-			document.getElementById('logo').src = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
-		getData(res.Records[i].Ticker);
-		getNews(res.Records[i].Name.toLowerCase());
-		return;
+		//	document.getElementById('cname').innerHTML = res.Records[i].Name ;
+		//	document.getElementById('companyOne').value= res.Records[i].Name ;
+		//	document.getElementById('logo').src = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
+		//	getData(res.Records[i].Ticker);
+		//	getNews(res.Records[i].Name.toLowerCase());
+			companyTicker = res.Records[i].Ticker; 
+			companyName = res.Records[i].Name;
+			companySrc = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
 	 }
 		else if (res.Records[i].Ticker.toLowerCase().includes(data.company.toLowerCase())) {
-			document.getElementById('cname').innerHTML = res.Records[i].Name ;
-				document.getElementById('companyOne').value= res.Records[i].Name ;
-		getData(res.Records[i].Ticker);
-		getNews(res.Records[i].Name.toLowerCase());
-		return;
+		//	document.getElementById('cname').innerHTML = res.Records[i].Name ;
+		//	document.getElementById('companyOne').value= res.Records[i].Name ;
+		//	getData(res.Records[i].Ticker);
+		//	getNews(res.Records[i].Name.toLowerCase());
+			companyTicker = res.Records[i].Ticker; 
+			companyName = res.Records[i].Name;
+			companySrc = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
 		}
+		
+  }
+  if (companyName != null) {
+	  	document.getElementById('cname').innerHTML = companyName ;
+		document.getElementById('companyOne').value= companyName ;
+		document.getElementById("CompareWith").style.visibility = "visible";
+		getData(companyTicker);
+		getNews(companyName.toLowerCase());
+  } else {
+	  console.log("Error");
+	  alert("Your search did not match any company in our documents");
+	
+	  window.location.replace("index.html");
   }
 });
 }

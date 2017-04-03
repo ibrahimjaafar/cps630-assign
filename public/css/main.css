@@ -8,7 +8,12 @@ header {
 
 }
 
-
+#CompareWith {
+	visibility:hidden;
+}
+#error {
+	color:red;
+}
 
 /* For mobile phones: */
 [class*="col-"] {
