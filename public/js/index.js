@@ -192,11 +192,12 @@ function getNews(company){
 		var url = "\""+data.value[i].url+"\"";
 		var name = data.value[i].name;
 		var date = data.value[i].datePublished;
+		if (data.value[i].image != null) {
 		var imgUrl = data.value[i].image.thumbnail.contentUrl;
-		//alert(imgUrl);
-		var description = data.value[i].description;
 		document.getElementsByTagName("section")[i].innerHTML += "<img src="+imgUrl+" alt='image'>"
-
+		}
+		var description = data.value[i].description;
+	
 		document.getElementsByTagName("section")[i].innerHTML += "<a href="+url+">" + name + "</a>"
 		
 		document.getElementsByTagName("section")[i].innerHTML += "<p>" + description +"</p>";
