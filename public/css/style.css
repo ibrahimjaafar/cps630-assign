@@ -61,6 +61,7 @@ main {
 	color: #777777;
 	width: 70vw;
 	font-size: 1.5em;
+	text-align: center;
 }
 
 #login > input[type="submit"] {
@@ -135,7 +136,7 @@ form > label {
 	transition: box-shadow .5s;
 }
 
-input[type=text]:focus {
+#name:focus {
 	border-color: blue;
 	outline: none;
 	box-shadow: 10px 10px 10px #888888;
