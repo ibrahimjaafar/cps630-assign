@@ -71,6 +71,15 @@ app.get('/investorsreport/js/index.js', function (req, res) {
 app.get('/investorsreport/mapping.json', function (req, res) {
 	res.sendFile(__dirname + '/public/mapping.json');
 });
+app.get('/investorsreport/css/report.css', function (req, res) {
+	res.sendFile(__dirname + '/public/css/report.css');
+});
+app.get('/investorsreport/CReport.html', function (req, res) {
+	res.sendFile(__dirname + '/public/CReport.html');
+});
+app.get('/investorsreport/js/compare.js', function (req, res) {
+	res.sendFile(__dirname + '/public/js/compare.js');
+});
 app.post('/investorsreport/login', function (req, res) {
 	console.log("POST");
 	console.log(res.body);
