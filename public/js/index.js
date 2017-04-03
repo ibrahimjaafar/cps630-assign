@@ -13,6 +13,7 @@ window.onload = function () {
 	 if (res.Records[i].Name.toLowerCase().includes(data.company.toLowerCase().split("+", 1))){
 			
 			document.getElementById('cname').innerHTML = res.Records[i].Name ;
+			document.getElementById('companyOne').value= res.Records[i].Name ;
 			document.getElementById('logo').src = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
 		getData(res.Records[i].Ticker);
 		getNews(res.Records[i].Name.toLowerCase());
@@ -20,6 +21,7 @@ window.onload = function () {
 	 }
 		else if (res.Records[i].Ticker.toLowerCase().includes(data.company.toLowerCase())) {
 			document.getElementById('cname').innerHTML = res.Records[i].Name ;
+				document.getElementById('companyOne').value= res.Records[i].Name ;
 		getData(res.Records[i].Ticker);
 		getNews(res.Records[i].Name.toLowerCase());
 		return;
