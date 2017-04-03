@@ -6,7 +6,7 @@ window.onload = function () {
          tmp = params[i].split('=');
          data[tmp[0]] = tmp[1];
     }
-
+	
 	$.getJSON("mapping.json", function(res) {
   for (i = 0; i<res.Records.length; i++){
 	
@@ -15,13 +15,13 @@ window.onload = function () {
 			document.getElementById('cname').innerHTML = res.Records[i].Name ;
 			document.getElementById('logo').src = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
 		getData(res.Records[i].Ticker);
-		
-		getNews(res.Records[i].Name.toLowerCase().split(" ", 1));
+		getNews(res.Records[i].Name.toLowerCase());
 		return;
 	 }
 		else if (res.Records[i].Ticker.toLowerCase().includes(data.company.toLowerCase())) {
 			document.getElementById('cname').innerHTML = res.Records[i].Name ;
 		getData(res.Records[i].Ticker);
+		getNews(res.Records[i].Name.toLowerCase());
 		return;
 		}
   }
@@ -194,5 +194,6 @@ function getNews(company){
     });
 	
 }
+
 //getData();
 
