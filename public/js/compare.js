@@ -11,31 +11,27 @@ window.onload = function () {
     }
 var companyOneName,companyTwoName;
 var companyOneTicker, companyTwoTicker;
+var oneDone=0, twoDone=0;
 	$.getJSON("mapping.json", function(res) {
   for (i = 0; i<res.Records.length; i++){
 	
-	 if (res.Records[i].Name.toLowerCase().includes(data.companyOne.toLowerCase().split("+", 1))){
-			
-			// document.getElementById('cname').innerHTML = res.Records[i].Name ;
-				companyOneName = res.Records[i].Name;
-				
+	 if (res.Records[i].Name.toLowerCase().includes(data.companyOne.toLowerCase().split("+", 1)) && !oneDone){
+		oneDone = 1;
+		companyOneName = res.Records[i].Name;	
 		companyOneTicker = res.Records[i].Ticker;
 	 }
-		else if (res.Records[i].Ticker.toLowerCase().includes(data.companyOne.toLowerCase())) {
-		//	document.getElementById('cname').innerHTML = res.Records[i].Name ;
-	//	getData(res.Records[i].Ticker);
+	else if (res.Records[i].Ticker.toLowerCase().includes(data.companyOne.toLowerCase()) && !oneDone) {
+		oneDone = 1;
 		companyOneName = res.Records[i].Name;
 		companyOneTicker = res.Records[i].Ticker;
 		}
-	if (res.Records[i].Name.toLowerCase().includes(data.companyTwo.toLowerCase().split("+", 1)) ){
-		
-		// document.getElementById('cname').innerHTML = res.Records[i].Name ;
+	if (res.Records[i].Name.toLowerCase().includes(data.companyTwo.toLowerCase().split("+", 1)) && !twoDone ){
+		twoDone = 1;
 		companyTwoName = res.Records[i].Name;
 		companyTwoTicker = res.Records[i].Ticker;
 	 }
-	else if (res.Records[i].Ticker.toLowerCase().includes(data.companyTwo.toLowerCase())) {
-		//	document.getElementById('cname').innerHTML = res.Records[i].Name ;
-		//	getData(res.Records[i].Ticker);
+	else if (res.Records[i].Ticker.toLowerCase().includes(data.companyTwo.toLowerCase()) && !twoDone) {
+		twoDone = 1;
 		companyTwoName = res.Records[i].Name;
 		companyTwoTicker = res.Records[i].Ticker;
 	}
@@ -159,7 +155,7 @@ function getData(companyOne,companyTwo){
 			options:option
 		});
 		
-		
+		// 
 		var lastdaygraph = document.getElementById("lastday").getContext("2d");
 		var data3 = {
 			labels: [companyOne + " " + resp.dataset.column_names[1], companyTwo + " " + resp2.dataset.column_names[1]
