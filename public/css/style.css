@@ -22,27 +22,38 @@ nav {
 	padding: 1em;
 	height: 3em;
 	margin:0px auto;
+
 }
 #navMain {
 	text-align:left;
 	float:left;
 	padding:5px;
 }
-a {
+a.tir{
+	padding:10px;
+	display: inline;
+	text-decoration: none;
+	color:black;
+
+	   
+	
+}
+a.nav {
 	padding:10px;
 	display: inline;
 	text-decoration: none;
 	color:grey;
-	transition: color 1s,background-color 1s, border-radius 1s;
-	
+		transition: color 1s,background-color 1s, border-radius 1s;
+
 	    background-color: white;
 	border-radius: 10px;
+	
 }
- a:hover {
+a.nav:hover {
     background-color: #555;
     color: white;
-	border-radius: 10px;
 	
+	border-radius: 10px;
 }
 input[type=submit] {
 margin-top: 0em;
