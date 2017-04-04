@@ -35,9 +35,9 @@ var sha512 = function (password, salt) {
 function saltHashPassword(userpassword) {
 	var salt = genRandomString(16); //Gives salt of length 16
 	var passwordData = sha512(userpassword, salt);
-	console.log('UserPassword = ' + userpassword);
-	console.log('Passwordhash = ' + passwordData.passwordHash);
-	console.log('nSalt = ' + passwordData.salt);
+	//console.log('UserPassword = ' + userpassword);
+	//console.log('Passwordhash = ' + passwordData.passwordHash);
+	//console.log('nSalt = ' + passwordData.salt);
 	return passwordData;
 }
 
@@ -83,6 +83,9 @@ app.get('/investorsreport/CReport.html', function (req, res) {
 app.get('/investorsreport/js/compare.js', function (req, res) {
 	res.sendFile(__dirname + '/public/js/compare.js');
 });
+app.get('/investorsreport/signup.html', function (req, res) {
+	res.sendFile(__dirname + '/public/signup.html');
+});
 app.post('/investorsreport/login', function (req, res) {
 	console.log("POST");
 	console.log(res.body);
@@ -110,10 +113,14 @@ app.post('/investorsreport/login', function (req, res) {
 					console.log(resultPass);
 					if (passD == resultPass) {
 						console.log('Successful');
-						var query = result[0].query;
-						query = query.slice(0, -1);
-						var q = query.split(',');
-						//var qq = JSON.parse(q);
+							var query = result[0].query;
+							try {
+							query = query.slice(0, -1);
+							} catch (e) {
+								query = '';
+							}
+							var q = query.split(',');
+							//var qq = JSON.parse(q);
 						console.log("Query = " + q);
 						res.render('login.ejs', {
 							div: q
@@ -129,6 +136,27 @@ app.post('/investorsreport/login', function (req, res) {
 		});
 		res.sendFile(__dirname + '/public/index.html');
 	}
+});
+app.post('/investorsreport/signup', function(req, res) {
+	console.log("Adding to database");
+	if (req.body.username == '' || req.body.password == '') {
+		res.redirect('back');
+		console.log("Fields cannot be null");
+	} else {
+		console.log("Inserting data");
+		var user = req.body.username;
+		var pass = req.body.password;
+		var spass = saltHashPassword(pass);
+		console.log(spass.passwordHash);
+		console.log(spass.salt);
+		connection.query('INSERT INTO users (username, password, salt) VALUES (?, ?, ?)', [user,spass.passwordHash,spass.salt], function(err, result) {
+			if (err) {
+			} else {
+			}
+		});
+	}
+	res.sendFile(__dirname + '/public/index.html');
+
 });
 app.listen(process.env.PORT || 3001, function () {
 	console.log('Listening on port' + (process.env.PORT || 3001))

@@ -23,17 +23,17 @@
 		</style>
 	</head>
 	<body>
-		<form class="formBlock">
+		<form class="formBlock" method="POST" action="/investorsreport/signup">
 			<p style="text-align:center;">Create Account</p>
 			<label>Name</label><br>
 			<input id="fName" type="text" placeholder="First Name"> <input id="lName" type="text" placeholder="Last Name"><br><br>
 			<label>User Name</label><br>
-			<input id="userName" type="text" placeholder="Choose your username"><br><br>
+			<input id="username" type="text" name="username" placeholder="Choose your username"><br><br>
 			<label>Password</label><br>
-			<input id="password" type="text" placeholder="Enter a password"><br><br>
+			<input id="password" type="password" name="password" placeholder="Enter a password"><br><br>
 			<label>Re-Enter the Password</label><br>
-			<input id="conf_pass" type="text" placeholder="Comfirm your password"><br><br>
-			<div class="centre"><input type="button" value="Sign Up" onclick="myFunc()"/></div><br><br>
+			<input id="conf_pass" type="password" name="conf_pass" placeholder="Confirm your password"><br><br>
+			<div class="centre"><input type="submit" value="Sign Up"/></div><br><br>
 			<div>Already Have an Account? <a href="index.html" style="text-decoration:none;">Sign In</a></div>
 		</form>
 	
