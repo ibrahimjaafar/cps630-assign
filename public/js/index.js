@@ -35,6 +35,8 @@ window.onload = function () {
 		document.getElementById("CompareWith").style.visibility = "visible";
 		document.getElementById("navBar").style.visibility = "visible";
 		document.getElementById('logo').src = companySrc;
+		document.getElementById('title').innerHTML = companyName + " Recent News";
+
 		getData(companyTicker);
 		getNews(companyName.toLowerCase());
   } else {
@@ -208,15 +210,15 @@ function getNews(company){
 		var name = data.value[i].name;
 		var date = data.value[i].datePublished;
 		if (data.value[i].image != null) {
-	//	var imgUrl = data.value[i].image.thumbnail.contentUrl;
-//		document.getElementsByTagName("section")[i].innerHTML += "<img src="+imgUrl+" alt='image'>"
+		var imgUrl = data.value[i].image.thumbnail.contentUrl;
+		document.getElementsByTagName("section")[i].innerHTML += "<img src="+imgUrl+" class='news' alt='image'><br>"
 		}
 		var description = data.value[i].description;
 	
-		document.getElementsByTagName("section")[i].innerHTML += "<a href="+url+">" + name + "</a>"
+		document.getElementsByTagName("section")[i].innerHTML += "<a  href="+url+"><p class='ind' id='title'>" + name + "</p></a>"
 		
-		document.getElementsByTagName("section")[i].innerHTML += "<p>" + description +"</p>";
-		document.getElementsByTagName("section")[i].innerHTML += "<p>" + date +"</p>";
+		document.getElementsByTagName("section")[i].innerHTML += "<p id='desc'>" + description +"</p>";
+		document.getElementsByTagName("section")[i].innerHTML += "<p class='date'>" + date +"</p>";
 
 		}
         })
