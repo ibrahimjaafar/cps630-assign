@@ -30,6 +30,7 @@ window.onload = function () {
 		
   }
   if (companyName != null) {
+	  document.getElementsByClassName('search')[0].value = companyName;
 	  	document.getElementById('cname').innerHTML = companyName ;
 		document.getElementById('companyOne').value= companyName ;
 		document.getElementById("CompareWith").style.visibility = "visible";
