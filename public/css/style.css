@@ -29,14 +29,59 @@ nav {
 	padding:5px;
 }
 a {
-	padding:5px;
+	padding:10px;
 	display: inline;
 	text-decoration: none;
 	color:grey;
+	transition: color 1s,background-color 1s, border-radius 1s;
+	
+	    background-color: white;
+	border-radius: 10px;
 }
  a:hover {
     background-color: #555;
     color: white;
+	border-radius: 10px;
+	
+}
+input[type=submit] {
+margin-top: 0em;
+	border: 1px solid #dddddd;
+	background-color: #f3f3f3;
+	color: #777777;
+	font-size: 12px;
+	padding: 3px;
+	width: 8vw;
+	outline: none;
+	border-radius: 50px;
+	transition: border 0.5s, color .5s;
+}
+
+input[type=submit]:hover {
+	border: 1px solid black;
+	color: black;
+}
+.active{
+	background-color: #555;
+    color: white;
+	border-radius: 10px;
+}
+.compare {
+	font-size: 10px;
+	padding: 5px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 10px;
+	border-radius: 50px;
+	outline: none;
+	text-align: center;
+	margin: auto;
+	transition: box-shadow .5s;
+}
+
+.compare:focus {
+	border-color: blue;
+	outline: none;
+	box-shadow: 10px 10px 10px #888888;
 }
 #CompareBar {
 	padding-left:10px;
@@ -92,6 +137,7 @@ main {
 	color: #777777;
 	width: 70vw;
 	font-size: 1.5em;
+	transition: border 0.5s, color .5s;
 }
 
 #login > input[type="submit"]:hover {
@@ -136,6 +182,7 @@ form > label {
 	font-size: 1.5em;
 	outline: none;
 	border-radius: 50px;
+	transition: border .5s,color .5s;
 }
 
 #SearchBar > input[type=submit]:hover {
