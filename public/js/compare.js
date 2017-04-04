@@ -40,6 +40,8 @@ var oneDone=0, twoDone=0;
   if (companyOneName != null && companyTwoName != null) {
 	document.getElementById('cname').innerHTML = companyOneName + " vs " + companyTwoName;
 	document.getElementById("navBar").style.visibility = "visible";
+document.getElementById('logo').src = "https://logo.clearbit.com/"+data.companyOne.toLowerCase().split("+", 1)+".com";
+	document.getElementById('logo2').src = "https://logo.clearbit.com/"+data.companyTwo.toLowerCase().split("+", 1)+".com";
 	getData(companyOneTicker,companyTwoTicker);
   }else {
 	console.log("Invalid user input");
