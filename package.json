@@ -20,6 +20,7 @@
   "homepage": "https://github.com/rganado/cps630-assign#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "ejs": "^2.5.6",
     "express": "^4.14.1",
     "morgan": "^1.8.1",
     "node-mysql": "^0.4.2",

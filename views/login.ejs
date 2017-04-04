@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/index.js"></script>
+</head>
+
+<body>
+	<nav> <img id="profile" src="img/profile.png">
+		<div id="navMain"> <a href="index.html">Home</a> <a href="about.html">About</a>
+			<div id="CompareBar">
+				<form id="CompareBar" action="CReport.html" method="GET">
+					<input type="text" id="companyOne" placeholder="Company #1" name="companyOne">
+					<input type="text" id="companyTwo" placeholder="Company #2" name="companyTwo">
+					<input type="submit" value="Compare"> </form>
+			</div>
+		</div>
+	</nav>
+	<main>
+		<div id="SearchDiv">
+			<form id="SearchBar" action="report.html" method="GET">
+				<h1>The Investors Report</h1>
+				<input type="text" id="name" placeholder="Search for a company" name="company">
+				<p id="error"></p>
+				<input type="submit" value="Search"> </form>
+		</div>
+		<div>
+			<ul>
+				<% for(var i = 0; i < div.length; i++) { %>
+					<li>
+						<p>
+							<%= div[i] %>
+						</p>
+					</li>
+				<% } %> 
+			</ul>
+		</div>	
+	</main>
+	<footer> </footer>
+	<script>
+		var profile = document.getElementById("profile");
+		profile.onclick = function () {
+			var login = document.getElementById("loginform");
+			console.log(login.style.display);
+			if (login.style.display !== 'none') {
+				console.log("Change to none");
+				login.style.display = 'none';
+			}
+			else {
+				console.log('Displayed true');
+				login.style.display = 'table';
+			}
+		}
+	</script>
+</body>
+
+</html>

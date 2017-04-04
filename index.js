@@ -8,6 +8,9 @@ var crypto = require('crypto');
 var mysql = require('mysql');
 var mysql_info = require('../../mysql.js');
 var connection = mysql.createConnection(mysql_info.info());
+
+app.set('view engine', 'ejs');
+
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({
@@ -92,7 +95,7 @@ app.post('/investorsreport/login', function (req, res) {
 		var pass = req.body.password;
 		console.log(user);
 		console.log(pass);
-		connection.query('SELECT password, salt from users where username = ?', user, function(err, result) {
+		connection.query('SELECT password, salt, query from users where username = ?', user, function(err, result) {
 			if(err) {
 				console.log("Error Querying");
 				throw err;
@@ -106,7 +109,16 @@ app.post('/investorsreport/login', function (req, res) {
 					console.log(passD);
 					console.log(resultPass);
 					if (passD == resultPass) {
-						console.log('Success');
+						console.log('Successful');
+						var query = result[0].query;
+						query = query.slice(0, -1);
+						var q = query.split(',');
+						//var qq = JSON.parse(q);
+						console.log("Query = " + q);
+						res.render('login.ejs', {
+							div: q
+						});
+						console.log("COMPLETE");
 					} else {
 						console.log('Unsuccessful');
 					}
