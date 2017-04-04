@@ -34,6 +34,7 @@ window.onload = function () {
 		document.getElementById('companyOne').value= companyName ;
 		document.getElementById("CompareWith").style.visibility = "visible";
 		document.getElementById("navBar").style.visibility = "visible";
+		document.getElementById('logo').src = companySrc;
 		getData(companyTicker);
 		getNews(companyName.toLowerCase());
   } else {

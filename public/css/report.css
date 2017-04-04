@@ -62,13 +62,16 @@ nav a {
 	color:grey;
 	display:inline;
 }
-
+#logo {
+		padding-top:75px;
+}
 nav > img {
 	width: 25px;
 	height: 25px;
 	float: right;
 	border: 1px solid #dddddd;
 	border-radius: 50%;
+
 }
 h1 {
 	padding-top:20px;
