@@ -33,13 +33,12 @@ window.onload = function () {
 	  	document.getElementById('cname').innerHTML = companyName ;
 		document.getElementById('companyOne').value= companyName ;
 		document.getElementById("CompareWith").style.visibility = "visible";
+		document.getElementById("navBar").style.visibility = "visible";
 		getData(companyTicker);
 		getNews(companyName.toLowerCase());
   } else {
-	  console.log("Error");
-	  alert("Your search did not match any company in our documents");
-	
-	  window.location.replace("index.html");
+	  console.log("Invalid Option");
+	 window.history.back();
   }
 });
 }

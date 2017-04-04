@@ -5,3 +5,118 @@
     background-color: #f3f3f3; 
 	margin: 5px;
 }
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	
+	/*
+	background-color: #cccccc;
+	background-image: url("../Wolf-of-Wall-Street1.jpg");
+	background-position: 0px 150px;
+	background-size: 800px 400px;
+	background-repeat: no-repeat;
+	*/
+	text-align: center;
+}
+#navBar {
+	visibility:hidden;
+}
+nav {
+	
+	padding: 1em;
+	height: 3em;
+	position: fixed;
+    top: 0px; 
+	width:100%;
+	height:auto;
+    background-color:white;
+}
+#navMain {
+	text-align:left;
+	float:left;
+	padding:5px;
+}
+nav a {
+	padding:5px;
+	display: inline;
+	text-decoration: none;
+	color:grey;
+}
+ nav a:hover {
+    background-color: #555;
+    color: white;
+}
+#SearchDiv {
+	padding-left:10px;
+	float:right;
+	text-align:left;
+	display:inline;
+}
+
+#Compare{
+	padding-left:10px;
+	float:right;
+	text-align:right;
+	padding-right: 10px;
+	color:grey;
+	display:inline;
+}
+
+nav > img {
+	width: 25px;
+	height: 25px;
+	float: right;
+	border: 1px solid #dddddd;
+	border-radius: 50%;
+}
+h1 {
+	padding-top:20px;
+}
+main {
+	margin-top: -5em;
+	z-index: 0;
+}
+
+#loginform {
+	display: none;
+	position: absolute;
+	top: 4em;
+	left: 0;
+	margin: 1em;
+	padding-top: 1em;
+	background-color: #dddddd;
+	z-index: 1;
+}
+
+#login {
+	display: table-cell;
+	text-align: center;
+	padding: 1em;
+	border: 1px solid #dddddd;
+}
+
+#user,
+#pass {
+	display: block;
+	margin: 0 auto;
+	color: #777777;
+	width: 70vw;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#login > input[type="submit"] {
+	position: relative;
+	border: 1px solid #dddddd;
+	border-radius: 0.2em;
+	background-color: #f3f3f3;
+	color: #777777;
+	width: 70vw;
+	font-size: 1.5em;
+}
+
+#login > input[type="submit"]:hover {
+	border: 1px solid black;
+	color: black;
+}

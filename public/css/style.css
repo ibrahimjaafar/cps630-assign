@@ -21,11 +21,31 @@ h1 {
 nav {
 	padding: 1em;
 	height: 3em;
+	margin:0px auto;
+}
+#navMain {
+	text-align:left;
+	float:left;
+	padding:5px;
+}
+a {
+	padding:5px;
+	display: inline;
+	text-decoration: none;
+	color:grey;
+}
+ a:hover {
+    background-color: #555;
+    color: white;
+}
+#CompareBar {
+	padding-left:10px;
+	float:right;
 }
 
 nav > img {
-	width: 50px;
-	height: 50px;
+	width: 25px;
+	height: 25px;
 	float: right;
 	border: 1px solid #dddddd;
 	border-radius: 50%;

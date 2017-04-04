@@ -17,12 +17,31 @@
 	</head>
 
 	<body>
-	<div id="Compare">
-			<form visibility="hidden" id="CompareWith" action="CReport.html" method="GET">
-				<input id="companyOne" type="hidden" value="" name="companyOne" />
-				Compare With : <input type="text" id="name" placeholder="compare" name="companyTwo">
-				<input type="submit" value="Search"> </form>
+			<nav id="navBar"> <img id="profile" src="img/profile.png">
+		<div id="loginform" style="display: none">
+			<form id="login" method="POST" action="/investorsreport/login">
+				<input id="user" type="text" name="username" placeholder="Username">
+				<input id="pass" type="password" name="password" placeholder="Password">
+				<input id="logbtn" type="submit" value="Login" name="login">
+				<input id="signbtn" type="submit" value="Signup" name="signup"> </form>
+		</div>
+		<div id="navMain">
+		<a href="index.html">Home</a>
+		<a href="about.html">About</a>
+		
+	<div id="SearchDiv">
+			<form id="SearchBar" action="report.html" method="GET">	
+			<input type="text" id="name" placeholder="Try Another Search" name="company">
+			<input type="submit" value="Search"> </form>
 	</div>
+	<div id="Compare">
+			<form  id="CompareWith" action="CReport.html" method="GET">
+				<input id="companyOne" type="hidden" value="" name="companyOne" />
+				<input type="text" id="name" placeholder="Company Name / Ticker" name="companyTwo">
+				<input type="submit" value="Compare"> </form>
+	</div>
+		</div>
+		</nav>
 	<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" id="logo" alt="logo">
 	
 		<h1 class="a" id="cname"><h1>
@@ -31,7 +50,7 @@
 	 <canvas id="lastday" width="700" height="160"></canvas> 	
 	
 	<canvas id="highlow" width="900" height="400"></canvas>
-	
+	https://www.reddit.com/user/huntlol
 	 <canvas id="volume" width="700" height="200"></canvas> 
 	
 	</div>

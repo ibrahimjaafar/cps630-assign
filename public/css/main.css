@@ -27,7 +27,15 @@ section {
     background-color: #f3f3f3; 
 	margin: 5px;
 }
-
+a {
+	padding:5px;
+	display: inline;
+	text-decoration: none;
+	color:#262626;
+}
+#news a:hover {
+	color: #b32d00;
+}
 @media only screen and (min-width : 71px) {
  .col-c-1 {width: 8.33%;}
     .col-c-2 {width: 16.66%;}
@@ -44,9 +52,7 @@ section {
 	body{
 		width:auto;
 		height:auto;
-		   font-weight: 900;
-		   
-		  
+	
 	}
 
 }

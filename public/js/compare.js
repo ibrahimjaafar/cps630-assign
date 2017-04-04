@@ -39,7 +39,12 @@ var oneDone=0, twoDone=0;
   
   if (companyOneName != null && companyTwoName != null) {
 	document.getElementById('cname').innerHTML = companyOneName + " vs " + companyTwoName;
-	 getData(companyOneTicker,companyTwoTicker);
+	document.getElementById("navBar").style.visibility = "visible";
+	getData(companyOneTicker,companyTwoTicker);
+  }else {
+	console.log("Invalid user input");
+	  
+	window.history.back();
   }
 });
 

@@ -17,6 +17,26 @@
 	</head>
 
 	<body>
+		<nav id="navBar"> <img id="profile" src="img/profile.png">
+		<div id="loginform" style="display: none">
+			<form id="login" method="POST" action="/investorsreport/login">
+				<input id="user" type="text" name="username" placeholder="Username">
+				<input id="pass" type="password" name="password" placeholder="Password">
+				<input id="logbtn" type="submit" value="Login" name="login">
+				<input id="signbtn" type="submit" value="Signup" name="signup"> </form>
+		</div>
+		<div id="navMain">
+		<a href="index.html">Home</a>
+		<a href="about.html">About</a>
+		
+	<div id="SearchDiv">
+			<form id="SearchBar" action="report.html" method="GET">	
+			<input type="text" id="name" placeholder="Try Another Search" name="company">
+			<input type="submit" value="Search"> </form>
+	</div>
+	
+		</div>
+		</nav>
 	<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" id="logo" alt="logo">
 	
 		<h1 class="a" id="cname"><h1>
