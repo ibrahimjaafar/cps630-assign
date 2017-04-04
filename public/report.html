@@ -18,7 +18,7 @@
 	</head>
 
 	<body>
-			<nav id="navBar"> <img id="profile" src="img/profile.png">
+			<nav class="move" id="navBar"> <img class="move" id="profile" src="img/profile.png">
 		<div id="loginform" style="display: none">
 			<form id="login" method="POST" action="/investorsreport/login">
 				<input id="user" type="text" name="username" placeholder="Username">
@@ -30,17 +30,19 @@
 		<a href="index.html">Home</a>
 		<a href="about.html">About</a>
 		
-	<div id="SearchDiv">
-			<form id="SearchBar" action="report.html" method="GET">	
-			<input type="text" id="name" placeholder="Try Another Search" name="company">
-			 <input type="submit" value="Search"> </form>
-	</div>
-	<div id="Compare">
+		
+		<div id="Compare">
 			<form  id="CompareWith" action="CReport.html" method="GET">
 				<input id="companyOne" type="hidden" value="" name="companyOne" />
 				<input type="text" id="name" placeholder="Company Name / Ticker" name="companyTwo">
 				<input type="submit" value="Compare"> </form>
 	</div>
+	<div id="SearchDiv">
+			<form id="SearchBar" action="report.html" method="GET">	
+			<input type="text" class="search" id="name" placeholder="Try Another Search" name="company">
+			 <input type="submit" value="Search"> </form>
+	</div>
+	
 		</div>
 		</nav>
 		<br>
