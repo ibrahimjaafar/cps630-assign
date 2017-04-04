@@ -58,8 +58,10 @@ function getData(company){
 			resp = JSON.parse(xmlhttp.responseText);
 		//["Date","Open","High","Low","Close","Volume","Ex-Dividend","Split Ratio","Adj. Open","Adj. High","Adj. Low","Adj. Close","Adj. Volume"]
       	
-	
 		//7 day high/low
+		
+		document.getElementById('highlowTitle').innerHTML = "Stock High/Low Comparison Over The Past Week";
+		
 		var canvas = document.getElementById('highlow');
 			var data = {
 			labels: [resp.dataset.data[6][0],resp.dataset.data[5][0],resp.dataset.data[4][0],resp.dataset.data[3][0], resp.dataset.data[2][0], resp.dataset.data[1][0],resp.dataset.data[0][0]],
@@ -99,6 +101,7 @@ function getData(company){
 			data:data,
 			options:option
 			});
+		document.getElementById('volumeTitle').innerHTML = "Stock Volume Over The Past Week";
 		
 		//7 day volume
 		var canvas2 = document.getElementById('volume');
@@ -124,6 +127,8 @@ function getData(company){
 			}
 
 	};
+		document.getElementById('lastDayTitle').innerHTML = "Stock Prices Over The Last Day";
+		
 		var linegraph = Chart.Line(canvas2,{
 			data:data2,
 			options:option
@@ -203,8 +208,8 @@ function getNews(company){
 		var name = data.value[i].name;
 		var date = data.value[i].datePublished;
 		if (data.value[i].image != null) {
-		var imgUrl = data.value[i].image.thumbnail.contentUrl;
-		document.getElementsByTagName("section")[i].innerHTML += "<img src="+imgUrl+" alt='image'>"
+	//	var imgUrl = data.value[i].image.thumbnail.contentUrl;
+//		document.getElementsByTagName("section")[i].innerHTML += "<img src="+imgUrl+" alt='image'>"
 		}
 		var description = data.value[i].description;
 	

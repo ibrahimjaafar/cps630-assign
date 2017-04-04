@@ -64,7 +64,9 @@ function getData(companyOne,companyTwo){
 		xmlhttp2.onreadystatechange = function(){
 		if (xmlhttp2.readyState == XMLHttpRequest.DONE && xmlhttp2.status == 200){	
 		resp2 = JSON.parse(xmlhttp2.responseText);
-
+		
+		document.getElementById('highhighTitle').innerHTML = "Stock High/Low Comparison Over The Past Week";
+		
 		// 7 day high lows soon to be 7 day high vs high
 			var canvas = document.getElementById('highhigh');
 			var data = {
@@ -123,7 +125,8 @@ function getData(companyOne,companyTwo){
 			});
 		
 		// volumeCompare
-		
+		document.getElementById('volumeTitle').innerHTML = "Stock Volume Over The Past Week";
+			
 		var canvas2 = document.getElementById('volume');
 		var data2 = {
 			labels: [resp.dataset.data[0][0], resp.dataset.data[1][0], resp.dataset.data[2][0],resp.dataset.data[3][0],resp.dataset.data[4][0],resp.dataset.data[5][0],resp.dataset.data[6][0]],
@@ -159,7 +162,8 @@ function getData(companyOne,companyTwo){
 			data:data2,
 			options:option
 		});
-		
+		document.getElementById('lastDayTitle').innerHTML = "Stock Prices Over The Last Day";
+	
 		// 
 		var lastdaygraph = document.getElementById("lastday").getContext("2d");
 		var data3 = {
