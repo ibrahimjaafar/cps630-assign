@@ -1,9 +1,12 @@
-html,
+html{
+	height: 100%;
+	box-sizing: border-box;
+}
 body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 	/*
 	background-color: #cccccc;
 	background-image: url("../Wolf-of-Wall-Street1.jpg");
@@ -12,6 +15,14 @@ body {
 	background-repeat: no-repeat;
 	*/
 	text-align: center;
+	min-height:100%;
+	position: relative;
+}
+
+@media only screen and (max-height:500px){
+	body{
+		padding-bottom:6rem;
+	}
 }
 
 h1 {
@@ -55,6 +66,25 @@ a.nav:hover {
 	
 	border-radius: 10px;
 }
+
+a.footer{
+	padding:10px;
+	display: inline;
+	text-decoration: none;
+	color:grey;
+		transition: color 1s,background-color 1s, border-radius 1s;
+
+	    background-color: white;
+	border-radius: 10px;
+	
+}
+a.footer:hover {
+    background-color: #555;
+    color: white;
+	
+	border-radius: 10px;
+}
+
 input[type=submit] {
 margin-top: 0em;
 	border: 1px solid #dddddd;
@@ -236,4 +266,14 @@ form > label {
 
 :-ms-input-placeholder {
 	text-align: center;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }

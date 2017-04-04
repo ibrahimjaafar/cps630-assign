@@ -33,7 +33,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
-	
+	overflow-x: hidden;
 	/*
 	background-color: #cccccc;
 	background-image: url("../Wolf-of-Wall-Street1.jpg");
@@ -41,6 +41,8 @@ body {
 	background-size: 800px 400px;
 	background-repeat: no-repeat;
 	*/
+	min-height:100%;
+	position: relative;
 	text-align: center;
 }
 #navBar {
