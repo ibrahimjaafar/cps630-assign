@@ -36,7 +36,6 @@ section {
 	width: 32%;
 	font-size: 15px;
 		border-radius: 50px;
-		    position: relative;
 transition:background-color 1s,border 1s,border-radius 1s;
 }
 section:hover {
