@@ -5,6 +5,27 @@
     background-color: #f3f3f3; 
 	margin: 5px;
 }
+#margin{
+	margin: 20px;
+	margin-left:20px;
+	margin-right:25px;
+}
+p.date{
+	font-size:10px;
+	position: absolute;
+    bottom: 0;
+margin-left:10%;
+color:limegreen;
+}
+img.news{
+	    border-radius: 10px;
+		    border: 2px solid black;
+		
+display: block;
+    margin: 0 auto;
+	margin-top:10px;
+
+}
 body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
@@ -98,6 +119,16 @@ main {
 	padding: 1em;
 	border: 1px solid #dddddd;
 }
+#desc{
+	font-size:13px;
+}
+#title{
+	transition:color 1s;
+}
+#title:hover{
+	color:red;
+}
+
 
 #user,
 #pass {
@@ -120,6 +151,49 @@ main {
 }
 
 #login > input[type="submit"]:hover {
+	border: 1px solid black;
+	color: black;
+}
+
+#name {
+	font-size: 15px;
+	padding: 0px;
+	width: 200px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 10px;
+	border-radius: 50px;
+	outline: none;
+	text-align: center;
+	margin: auto;
+	box-shadow: 5px 5px 5px #888888;
+	transition: box-shadow .5s;
+}
+
+#name:focus {
+	border-color: blue;
+	outline: none;
+	box-shadow: 10px 10px 10px #888888;
+}
+#header{
+font-family: 'Cabin', sans-serif;
+    float: left;
+
+}
+
+input[type=submit] {
+
+	border: 1px solid #dddddd;
+	border-radius: 0.2em;
+	background-color: #f3f3f3;
+	color: #777777;
+	width: 6vw;
+
+	font-size: 1em;
+	outline: none;
+	border-radius: 50px;
+}
+
+input[type=submit]:hover {
 	border: 1px solid black;
 	color: black;
 }
