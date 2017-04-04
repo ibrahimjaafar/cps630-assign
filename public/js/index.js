@@ -137,6 +137,10 @@ function getData(company){
 			options:option
 		});
 		//
+		document.getElementById('open').innerHTML = resp.dataset.data[0][1];
+		document.getElementById('high').innerHTML = resp.dataset.data[0][2];
+		document.getElementById('low').innerHTML = resp.dataset.data[0][3];
+		document.getElementById('close').innerHTML = resp.dataset.data[0][4];
 		var lastdaygraph = document.getElementById("lastday").getContext("2d");
 		var data3 = {
 			labels: [resp.dataset.column_names[1],resp.dataset.column_names[2],resp.dataset.column_names[3],resp.dataset.column_names[4]],
