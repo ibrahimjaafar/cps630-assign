@@ -55,6 +55,7 @@ nav {
 	width:100%;
 	height:auto;
 	 border-bottom:2px solid rgb(0,0,0);
+  z-index:1; /*makes the nav bar go over the news containers*/
 
     background-color:white;
  }
