@@ -1,5 +1,5 @@
 window.onload = function () {
-    var url = document.location.href,
+   var url = document.location.href,
         params = url.split('?')[1].split('&'),
         data = {}, tmp;
     for (var i = 0, l = params.length; i < l; i++) {
@@ -43,6 +43,7 @@ window.onload = function () {
   }
 });
 }
+
 function getData(company){
 	var api = "https://www.quandl.com/api/v3/datasets/WIKI/"+company+".json?rows=7&api_key=dBzpDKhzBgcGovsMFx-f";
 	var xmlhttp = new XMLHttpRequest();
@@ -61,7 +62,7 @@ function getData(company){
 		//7 day high/low
 		var canvas = document.getElementById('highlow');
 			var data = {
-			labels: [resp.dataset.data[0][0], resp.dataset.data[1][0], resp.dataset.data[2][0],resp.dataset.data[3][0],resp.dataset.data[4][0],resp.dataset.data[5][0],resp.dataset.data[6][0]],
+			labels: [resp.dataset.data[6][0],resp.dataset.data[5][0],resp.dataset.data[4][0],resp.dataset.data[3][0], resp.dataset.data[2][0], resp.dataset.data[1][0],resp.dataset.data[0][0]],
 			datasets: [
         {
             label: "High",
@@ -70,7 +71,7 @@ function getData(company){
             borderWidth: 2,
             hoverBackgroundColor: "rgba(38,36,32,0.7)",
             hoverBorderColor: "rgba(38,36,32,1)",
-            data: [resp.dataset.data[0][2], resp.dataset.data[1][2], resp.dataset.data[2][2],resp.dataset.data[3][2],resp.dataset.data[4][2],resp.dataset.data[5][2],resp.dataset.data[6][2]],
+            data: [resp.dataset.data[6][2],resp.dataset.data[5][2],resp.dataset.data[4][2],resp.dataset.data[3][2], resp.dataset.data[2][2], resp.dataset.data[1][2],resp.dataset.data[0][2]],
         },
 		 {
             label: "Low",
@@ -79,7 +80,8 @@ function getData(company){
             borderWidth: 2,
             hoverBackgroundColor: "rgba(38,36,32,0.4)",
             hoverBorderColor: "rgba(38,36,32,1)",
-            data: [resp.dataset.data[0][3], resp.dataset.data[1][3], resp.dataset.data[2][3],resp.dataset.data[3][3],resp.dataset.data[4][3],resp.dataset.data[5][3],resp.dataset.data[6][3]],
+		    data: [resp.dataset.data[6][3], resp.dataset.data[5][3], resp.dataset.data[4][3],resp.dataset.data[3][3],resp.dataset.data[2][3],resp.dataset.data[1][3],resp.dataset.data[0][3]],
+           
 				}
 			]
 		};
@@ -101,7 +103,7 @@ function getData(company){
 		//7 day volume
 		var canvas2 = document.getElementById('volume');
 		var data2 = {
-			labels: [resp.dataset.data[0][0], resp.dataset.data[1][0], resp.dataset.data[2][0],resp.dataset.data[3][0],resp.dataset.data[4][0],resp.dataset.data[5][0],resp.dataset.data[6][0]],
+			labels: [resp.dataset.data[6][0], resp.dataset.data[5][0], resp.dataset.data[4][0],resp.dataset.data[3][0],resp.dataset.data[2][0],resp.dataset.data[1][0],resp.dataset.data[0][0]],
 			datasets: [
         {
             label: "Volume",
@@ -110,7 +112,7 @@ function getData(company){
             borderWidth: 2,
             hoverBackgroundColor: "rgba(38,36,32,0.7)",
             hoverBorderColor: "rgba(38,36,32,1)",
-            data: [resp.dataset.data[0][12], resp.dataset.data[1][12], resp.dataset.data[2][12],resp.dataset.data[3][12],resp.dataset.data[4][12],resp.dataset.data[5][12],resp.dataset.data[6][12]],
+            data: [resp.dataset.data[6][12], resp.dataset.data[5][12], resp.dataset.data[4][12],resp.dataset.data[3][12],resp.dataset.data[2][12],resp.dataset.data[1][12],resp.dataset.data[0][12]],
         }
 	
 			]
@@ -153,8 +155,16 @@ function getData(company){
 			}
 		}
 	});
+	var summary;
+		var change = (resp.dataset.data[6][3]-resp.dataset.data[5][3]-resp.dataset.data[4][3]-resp.dataset.data[3][3]-resp.dataset.data[2][3]-resp.dataset.data[1][3]-resp.dataset.data[0][3])
+	if (change > 0){
+		summmary = "The average change in stock for the past seven days is" + change + ", therefore increasing";
+	}
+	else {
+		summmary = "The average change in stock for the past seven days is" + change + ", therefore decreasing";
+	}
+	//document.getElementById("summary").innerHTML = summary;
 	}}
-	
 	xmlhttp.open("GET", api, true);
 	xmlhttp.send();
 
