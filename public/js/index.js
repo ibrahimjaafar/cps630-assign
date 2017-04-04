@@ -17,14 +17,14 @@ window.onload = function () {
 
 			companyTicker = res.Records[i].Ticker; 
 			companyName = res.Records[i].Name;
-			companySrc = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
+			companySrc = "https://logo.clearbit.com/"+res.Records[i].Name.split(" ", 1)+".com";
 			break;
 	 }
 		else if (res.Records[i].Ticker.toLowerCase().includes(data.company.toLowerCase())) {
 
 			companyTicker = res.Records[i].Ticker; 
 			companyName = res.Records[i].Name;
-			companySrc = "https://logo.clearbit.com/"+data.company.toLowerCase().split("+", 1)+".com";
+			companySrc = "https://logo.clearbit.com/"+res.Records[i].Name.split(" ", 1)+".com";
 			break;
 		}
 		
