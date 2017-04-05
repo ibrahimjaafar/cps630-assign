@@ -91,15 +91,15 @@
 			console.log(login.style.display);
 			if (sessionStorage.getItem('username')) {
 				if (logindiv.style.display !== 'none') {
-                                        console.log("Change to none");
-                                        logindiv.style.display = 'none';
-                                        document.getElementById('signout').style.display = 'none';
-                                }
-                                else {
-                                        console.log('Displayed true');
-                                        logindiv.style.display = 'table';
+					console.log("Change to none");
+					logindiv.style.display = 'none';
+					document.getElementById('signout').style.display = 'none';
+				}
+				else {
+					console.log('Displayed true');
+					logindiv.style.display = 'table';
 					button.style.display = 'block';
-                                }
+				}
 			}
 			else {
 				if (logindiv.style.display !== 'none') {
@@ -114,8 +114,10 @@
 				}
 			}
 		}
+
 		function signout() {
 			sessionStorage.clear();
+			window.location.replace("/investorsreport");
 		}
 	</script>
 </body>
