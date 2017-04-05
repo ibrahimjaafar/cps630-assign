@@ -1,14 +1,16 @@
 .left {
-	display: inline-block;
+	float: left;
 	text-align: center;
 	border: 1px solid #ccc;
 	background-color: #f3f3f3;
 	margin: 1em;
 	padding: 1em;
 }
+
 #news {
-	text-align: center;
+	padding-top: 1em;
 }
+
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
@@ -93,33 +95,34 @@ nav {
 }
 
 #loginform {
-        display: none;
-        position: absolute;
-        top: 4em;
-        right: 1em;
-        margin: 1em;
-        padding-top: 1em;
-        background-color: #dddddd;
-        z-index: 1;
+	display: none;
+	position: absolute;
+	top: 4em;
+	right: 1em;
+	margin: 1em;
+	padding-top: 1em;
+	background-color: #dddddd;
+	z-index: 1;
 }
 
 #login {
-        display: table-cell;
-        text-align: center;
-        padding: 1em;
-        border: 1px solid #dddddd;
+	display: table-cell;
+	text-align: center;
+	padding: 1em;
+	border: 1px solid #dddddd;
 }
 
 #loginform:before {
-        content: ' ';
-        position: absolute;
-        width: 0;
-        height: 0;
-        right: 0px;
-        top: -30px;
-        border: 15px solid;
-        border-color: transparent transparent #dddddd transparent;
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	right: 0px;
+	top: -30px;
+	border: 15px solid;
+	border-color: transparent transparent #dddddd transparent;
 }
+
 a.tir {
 	padding: 10px;
 	display: inline;
