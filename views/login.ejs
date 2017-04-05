@@ -12,11 +12,12 @@
 <body>
 	<nav> <img id="profile" src="img/profile.png">
 		<div id="loginform" style="display: none">
-			<form id="login" method="POST" action="/investorsreport/login">
+			<form id="login" method="POST" action="/investorsreport/login" style="display: none">
 				<input id="user" type="text" name="username" placeholder="Username">
 				<input id="pass" type="password" name="password" placeholder="Password">
 				<input id="logbtn" type="submit" value="Login" name="login">
-				<br> <a href="signup.html">SignUp</a> </form>
+				<br> <a href="signup.html">Register</a> </form>
+			<button id="signout" onclick="signout()" style="display: none">Sign Out</button>
 		</div>
 		<div id="navMain"> <a class="tir" href="/investorsreport"><strong>The Investors Report</strong></a>
 			<div id="CompareBar">
@@ -90,18 +91,39 @@
 				}
 			});
 		}
-		var profile = document.getElementById("profile");
 		profile.onclick = function () {
-			var login = document.getElementById("loginform");
+			var logindiv = document.getElementById("loginform");
+			var form = document.getElementById("login");
+			var button = document.getElementById("signout");
 			console.log(login.style.display);
-			if (login.style.display !== 'none') {
-				console.log("Change to none");
-				login.style.display = 'none';
+			if (sessionStorage.getItem('username')) {
+				if (logindiv.style.display !== 'none') {
+					console.log("Change to none");
+					logindiv.style.display = 'none';
+					document.getElementById('signout').style.display = 'none';
+				}
+				else {
+					console.log('Displayed true');
+					logindiv.style.display = 'table';
+					button.style.display = 'block';
+				}
 			}
 			else {
-				console.log('Displayed true');
-				login.style.display = 'table';
+				if (logindiv.style.display !== 'none') {
+					console.log("Change to none");
+					logindiv.style.display = 'none';
+					form.style.display = 'none';
+				}
+				else {
+					console.log('Displayed true');
+					logindiv.style.display = 'table';
+					form.style.display = 'block';
+				}
 			}
+		}
+
+		function signout() {
+			sessionStorage.clear();
 		}
 	</script>
 </body>

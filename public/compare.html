@@ -7,16 +7,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="js/index.js"></script>
-	</head>
-	
+</head>
+
 <body>
 	<nav> <img id="profile" src="img/profile.png">
 		<div id="loginform" style="display: none">
-			<form id="login" method="POST" action="/investorsreport/login">
+			<form id="login" method="POST" action="/investorsreport/login" style="display: none">
 				<input id="user" type="text" name="username" placeholder="Username">
 				<input id="pass" type="password" name="password" placeholder="Password">
 				<input id="logbtn" type="submit" value="Login" name="login">
-				<input id="signbtn" type="submit" value="Signup" name="signup"> </form>
+				<br> <a href="signup.html">Register</a> </form>
+			<button id="signout" onclick="signout()" style="display: none">Sign Out</button>
 		</div>
 	</nav>
 	<main>
@@ -24,24 +25,45 @@
 			<form id="CompareBar" action="CReport.html" method="GET">
 				<h1>Compare</h1>
 				<input type="text" id="companyOne" placeholder="Company #1" name="companyOne">
-				<input type="text" id="companyTwo" placeholder="Company #2" name="companyTwo">				
+				<input type="text" id="companyTwo" placeholder="Company #2" name="companyTwo">
 				<input type="submit" value="Compare"> </form>
 		</div>
 	</main>
 	<footer> </footer>
 	<script>
-		var profile = document.getElementById("profile");
 		profile.onclick = function () {
-			var login = document.getElementById("loginform");
+			var logindiv = document.getElementById("loginform");
+			var form = document.getElementById("login");
+			var button = document.getElementById("signout");
 			console.log(login.style.display);
-			if (login.style.display !== 'none') {
-				console.log("Change to none");
-				login.style.display = 'none';
+			if (sessionStorage.getItem('username')) {
+				if (logindiv.style.display !== 'none') {
+					console.log("Change to none");
+					logindiv.style.display = 'none';
+					document.getElementById('signout').style.display = 'none';
+				}
+				else {
+					console.log('Displayed true');
+					logindiv.style.display = 'table';
+					button.style.display = 'block';
+				}
 			}
 			else {
-				console.log('Displayed true');
-				login.style.display = 'table';
+				if (logindiv.style.display !== 'none') {
+					console.log("Change to none");
+					logindiv.style.display = 'none';
+					form.style.display = 'none';
+				}
+				else {
+					console.log('Displayed true');
+					logindiv.style.display = 'table';
+					form.style.display = 'block';
+				}
 			}
+		}
+
+		function signout() {
+			sessionStorage.clear();
 		}
 	</script>
 </body>
