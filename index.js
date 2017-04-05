@@ -53,6 +53,25 @@ connection.connect(function (err) {
 /* Server */
 app.get('/investorsreport', function (req, res) {
 	console.log('GET');
+	var user = req.query.username;
+	if (!user) {
+		console.log("N/E");
+	}
+	else {
+		connection.query("SELECT query FROM users WHERE username = ?", user, function (error, result) {
+			if (error) {
+				throw error;
+			}
+			else {
+				var query = result[0].query;
+				query = query.split(",");
+				res.render('login.ejs', {
+					div: query
+					, user: user
+				});
+			}
+		});
+	}
 	res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/investorsreport/index.html', function (req, res) {
@@ -69,37 +88,38 @@ app.get('/investorsreport/report.html', function (req, res) {
 		var company = '';
 		throw e;
 	}
-	if (user || company) {
+	if (!user || !company) {
 		console.log("Params null");
 	}
 	else {
 		console.log("UPDATING database query");
 		try {
-		connection.query('SELECT query FROM users WHERE username = ?', user, function (err, result) {
-			if (err) throw err;
-			else {
-				var query = result[0].query;
-				query = query.split(",");
-				console.log(query);
-				company = company.toLowerCase();
-				console.log(company);
-				if (query.includes(company)) {
-					console.log("Query already contains company");
-				}
+			connection.query('SELECT query FROM users WHERE username = ?', user, function (err, result) {
+				if (err) throw err;
 				else {
-					query.push(company);
-					connection.query('UPDATE users SET query=? WHERE username=?', [query.toString(), user], function (err, result) {
-						if (err) {
-							throw err;
-						}
-						else {
-							console.log("Update complete");
-						}
-					});
+					var query = result[0].query;
+					query = query.split(",");
+					console.log(query);
+					company = company.toLowerCase();
+					console.log(company);
+					if (query.includes(company)) {
+						console.log("Query already contains company");
+					}
+					else {
+						query.push(company);
+						connection.query('UPDATE users SET query=? WHERE username=?', [query.toString(), user], function (err, result) {
+							if (err) {
+								throw err;
+							}
+							else {
+								console.log("Update complete");
+							}
+						});
+					}
 				}
-			}
-		});
-		} catch (e) {
+			});
+		}
+		catch (e) {
 			throw e;
 		}
 	}
