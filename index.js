@@ -56,6 +56,7 @@ app.get('/investorsreport', function (req, res) {
 	var user = req.query.username;
 	if (!user) {
 		console.log("N/E");
+	res.sendFile(__dirname + '/public/index.html');
 	}
 	else {
 		connection.query("SELECT query FROM users WHERE username = ?", user, function (error, result) {
@@ -64,7 +65,11 @@ app.get('/investorsreport', function (req, res) {
 			}
 			else {
 				var query = result[0].query;
+				if (query) {
 				query = query.split(",");
+				} else {
+					query = '';
+				}
 				res.render('login.ejs', {
 					div: query
 					, user: user
@@ -72,7 +77,6 @@ app.get('/investorsreport', function (req, res) {
 			}
 		});
 	}
-	res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/investorsreport/index.html', function (req, res) {
 	res.sendFile(__dirname + '/public/index.html');
@@ -98,7 +102,11 @@ app.get('/investorsreport/report.html', function (req, res) {
 				if (err) throw err;
 				else {
 					var query = result[0].query;
+					if (query) {
 					query = query.split(",");
+					} else {
+						query = [];
+					}
 					console.log(query);
 					company = company.toLowerCase();
 					console.log(company);
@@ -188,7 +196,14 @@ app.post('/investorsreport/login', function (req, res) {
 					if (passD == resultPass) {
 						console.log('Successful');
 						var query = result[0].query;
-						query = query.split(",");
+						console.log("Query = " + query);
+						if (query) {
+							console.log("here");
+							query = query.split(",");
+						} else {
+							console.log("there");
+							query = '';
+						}
 						console.log("Query = " + query);
 						res.render('login.ejs', {
 							div: query
