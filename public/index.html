@@ -43,7 +43,7 @@
 	<script>
 		window.onload = function () {
 			if (sessionStorage.getItem('username')) {
-				window.location.replace("/investorsreport/login?username=" + sessionStorage.getItem('username'));
+				window.location.replace("/investorsreport/?username=" + sessionStorage.getItem('username'));
 			}
 		};
 
