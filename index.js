@@ -50,10 +50,14 @@ saltHashPassword('MYPASSWORD');
 connection.connect(function (err) {
 	//connected (unless 'err' is set
 	console.log('connection err ' + err);
+	console.log('READY');
 });
 /* Server */
 app.get('/investorsreport', function (req, res) {
 	console.log('GET');
+	res.sendFile(__dirname + '/public/index.html');
+});
+app.get('/investorsreport/index.html', function (req, res) {
 	res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/investorsreport/report.html', function(req, res) {
@@ -120,6 +124,12 @@ app.get('/investorsreport/js/compare.js', function (req, res) {
 });
 app.get('/investorsreport/signup.html', function (req, res) {
 	res.sendFile(__dirname + '/public/signup.html');
+});
+app.get('/investorsreport/about.html', function (req, res) {
+	res.sendFile(__dirname + '/public/about.html');
+});
+app.get('/investorsreport/terms.html', function (req, res) {
+	res.sendFile(__dirname + '/public/terms.html');
 });
 app.post('/investorsreport/login', function (req, res) {
 	console.log("POST");
