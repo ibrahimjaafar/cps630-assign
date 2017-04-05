@@ -48,7 +48,7 @@ window.onload = function () {
 }
 
 function getData(company){
-	var api = "https://www.quandl.com/api/v3/datasets/WIKI/"+company+".json?rows=7&api_key=dBzpDKhzBgcGovsMFx-f";
+	var api = "https://www.quandl.com/api/v3/datasets/WIKI/"+company+".json?&api_key=dBzpDKhzBgcGovsMFx-f";
 	var xmlhttp = new XMLHttpRequest();
 	var xmlhttp2 = new XMLHttpRequest();
 	var resp;
@@ -137,6 +137,65 @@ function getData(company){
 			options:option
 		});
 		//
+		//7 day close
+		var canvas3 = document.getElementById('adjclose');
+		var data3 = {
+			labels: [resp.dataset.data[14][0],resp.dataset.data[13][0],
+			resp.dataset.data[12][0],resp.dataset.data[11][0],
+			resp.dataset.data[10][0],resp.dataset.data[9][0],
+			resp.dataset.data[8][0],resp.dataset.data[7][0],
+			resp.dataset.data[6][0], resp.dataset.data[5][0], 
+			resp.dataset.data[4][0],resp.dataset.data[3][0],
+			resp.dataset.data[2][0],resp.dataset.data[1][0],
+			resp.dataset.data[0][0]],
+			datasets: [
+        {
+            label: "Close price",
+            backgroundColor: "rgba(0,0,0,0)",
+            borderColor: "rgba(38,36,36,1)",
+            borderWidth: 2,
+            hoverBackgroundColor: "rgba(38,36,32,0.7)",
+            hoverBorderColor: "rgba(38,36,32,0.6)",
+            data: [resp.dataset.data[14][4],resp.dataset.data[13][4],
+			resp.dataset.data[12][4],resp.dataset.data[11][4],
+			resp.dataset.data[10][4],resp.dataset.data[9][4],
+			resp.dataset.data[8][4],resp.dataset.data[7][4],
+			resp.dataset.data[6][4], resp.dataset.data[5][4], 
+			resp.dataset.data[4][4],resp.dataset.data[3][4],
+			resp.dataset.data[2][4],resp.dataset.data[1][4],resp.dataset.data[0][4]],
+        },
+		{
+            label: "Adj Close price",
+            backgroundColor: "rgba(255,255,255,0)",
+            borderColor: "rgba(38,36,36,0.3)",
+            borderWidth: 2,
+            hoverBackgroundColor: "rgba(38,36,32,0.7)",
+            hoverBorderColor: "rgba(38,36,32,1)",
+            data: [resp.dataset.data[14][11],resp.dataset.data[13][11],
+			resp.dataset.data[12][11],resp.dataset.data[11][11],
+			resp.dataset.data[10][11],resp.dataset.data[9][11],
+			resp.dataset.data[8][11],resp.dataset.data[7][11],
+			resp.dataset.data[6][11], resp.dataset.data[5][1], 
+			resp.dataset.data[4][11],resp.dataset.data[3][11],
+			resp.dataset.data[2][11],resp.dataset.data[1][11],resp.dataset.data[0][11]],
+        }
+	
+			]
+					};
+			option = {
+				responsive: true,
+				animation: {
+				duration:2000
+			}
+
+	};
+		
+		
+		var linegraph2 = Chart.Line(canvas3,{
+			data:data3,
+			options:option
+		});
+		//
 		document.getElementById('open').innerHTML = resp.dataset.data[0][1];
 		document.getElementById('high').innerHTML = resp.dataset.data[0][2];
 		document.getElementById('low').innerHTML = resp.dataset.data[0][3];
@@ -185,7 +244,7 @@ function getData(company){
 function getNews(company){
 	var api = "https://api.cognitive.microsoft.com/bing/v5.0/news/search?q=microsoft&count=10&offset=0&mkt=en-us&safeSearch=Moderate";
 	var xmlhttp = new XMLHttpRequest();
-	var apiKey = "{6ca6cf01dc814891bf61287c30578eb1}";
+	var apiKey = "{467a8fea8f8a459282c5d078084ffd6c}";
 	var xmlhttp2 = new XMLHttpRequest();
 	var resp;
 		   $(function() {
@@ -202,7 +261,7 @@ function getNews(company){
             url: "https://api.cognitive.microsoft.com/bing/v5.0/news/search?" + $.param(params),
             beforeSend: function(xhrObj){
                 // Request headers
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6ca6cf01dc814891bf61287c30578eb1");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","467a8fea8f8a459282c5d078084ffd6c");
             },
             type: "GET",
             // Request body
