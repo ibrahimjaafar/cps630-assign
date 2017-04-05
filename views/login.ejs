@@ -36,16 +36,12 @@
 				<input type="submit" value="Search"> </form>
 		</div>
 		<div id="results"></div>
-		<div>
-			<ul>
-				<% for(var i = 0; i < div.length; i++) { %>
-					<li>
-						<p>
-							<%= div[i] %>
-						</p>
-					</li>
-					<% } %>
-			</ul>
+		<div class="queries">
+			<% for(var i = 0; i < div.length; i++) { %>
+				<a href='report.html?company=<%=div[i]%>'>
+					<%=div[i].toUpperCase() %>
+				</a>
+			<% } %>
 		</div>
 	</main>
 	<footer style="text-align:left">

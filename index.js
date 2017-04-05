@@ -62,15 +62,19 @@ app.get('/investorsreport/report.html', function (req, res) {
 	try {
 		var user = req.query.username;
 		var company = req.query.company;
+		console.log("Found params " + user + " " + company);
 	}
 	catch (e) {
 		var user = '';
 		var company = '';
 		throw e;
 	}
-	if (user == '' || company == '') {}
+	if (user || company) {
+		console.log("Params null");
+	}
 	else {
 		console.log("UPDATING database query");
+		try {
 		connection.query('SELECT query FROM users WHERE username = ?', user, function (err, result) {
 			if (err) throw err;
 			else {
@@ -95,6 +99,9 @@ app.get('/investorsreport/report.html', function (req, res) {
 				}
 			}
 		});
+		} catch (e) {
+			throw e;
+		}
 	}
 	res.sendFile(__dirname + '/public/report.html');
 });
@@ -171,14 +178,15 @@ app.post('/investorsreport/login', function (req, res) {
 					}
 					else {
 						console.log('Unsuccessful');
+						res.redirect('back');
 					}
 				}
 				else {
 					console.log("Could not find user");
+					res.redirect('back');
 				}
 			}
 		});
-		res.sendFile(__dirname + '/public/index.html');
 	}
 });
 app.post('/investorsreport/signup', function (req, res) {
