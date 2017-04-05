@@ -180,7 +180,10 @@ h1 {
 
 main {
 	margin-top: 50px;
+	margin-left: 1em;
+	margin-right: 1em;
 	z-index: 0;
+	overflow-x: hidden;
 }
 
 #desc {
@@ -262,7 +265,7 @@ input[type=submit]:hover {
 
 footer {
 	position: relative;
-	width: 100%;
+	width: 100vw;
 	margin-top: 5em;
 	bottom: 0;
 	padding: 1em;

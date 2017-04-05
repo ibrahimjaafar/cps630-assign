@@ -228,7 +228,7 @@ a.news {
 		background-color: #D6DBDF;
 		margin: 5px;
 		height: 30vw;
-		width: 27vw;
+		width: 25vw;
 		font-size: 15px;
 		border-radius: 50px;
 		position: relative;
@@ -236,7 +236,7 @@ a.news {
 	}
 }
 
-@media only screen and (min-width: 1240px) {
+@media only screen and (min-width: 1400px) {
 	section {
 		text-align: center;
 		border: 1px solid #ccc;
