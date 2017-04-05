@@ -1,7 +1,8 @@
-html{
+html {
 	height: 100%;
 	box-sizing: border-box;
 }
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
@@ -15,13 +16,13 @@ body {
 	background-repeat: no-repeat;
 	*/
 	text-align: center;
-	min-height:100%;
+	min-height: 100%;
 	position: relative;
 }
 
-@media only screen and (max-height:500px){
-	body{
-		padding-bottom:6rem;
+@media only screen and (max-height:500px) {
+	body {
+		padding-bottom: 6rem;
 	}
 }
 
@@ -32,76 +33,74 @@ h1 {
 nav {
 	padding: 1em;
 	height: 3em;
-	margin:0px auto;
-
+	margin: 0px auto;
 }
+
 #navMain {
-	text-align:left;
-	float:left;
-	padding:5px;
+	text-align: left;
+	float: left;
+	padding: 5px;
 }
-a.tir{
-	padding:10px;
+
+a.tir {
+	padding: 10px;
 	display: inline;
 	text-decoration: none;
-	color:black;
-
-	   
-	
+	color: black;
 }
+
 a.nav {
-	padding:10px;
+	padding: 10px;
 	display: inline;
 	text-decoration: none;
-	color:grey;
-		transition: color 1s,background-color 1s, border-radius 1s;
-
-	    background-color: white;
+	color: grey;
+	transition: color 1s, background-color 1s, border-radius 1s;
+	background-color: white;
 	border-radius: 10px;
-	
 }
+
 #error {
-	color:red;
+	color: red;
 }
-a.nav:hover {
-    background-color: #555;
-    color: white;
-	
-	border-radius: 10px;
-}
-#results a:hover {
-	color:red;
-}
-#results a{
-	padding:10px;
-	display: inline;
-	text-decoration: none;
-	color:grey;
-	transition: color 1s;
-	display:block;
-	border-radius: 10px;
-	
-}
-a.footer{
-	padding:10px;
-	display: inline;
-	text-decoration: none;
-	color:grey;
-		transition: color 1s,background-color 1s, border-radius 1s;
 
-	    background-color: white;
+a.nav:hover {
+	background-color: #555;
+	color: white;
 	border-radius: 10px;
-	
 }
+
+#results a:hover {
+	color: red;
+}
+
+#results a {
+	padding: 10px;
+	display: inline;
+	text-decoration: none;
+	color: grey;
+	transition: color 1s;
+	display: block;
+	border-radius: 10px;
+}
+
+a.footer {
+	padding: 10px;
+	display: inline;
+	text-decoration: none;
+	color: grey;
+	transition: color 1s, background-color 1s, border-radius 1s;
+	background-color: white;
+	border-radius: 10px;
+}
+
 a.footer:hover {
-    background-color: #555;
-    color: white;
-	
+	background-color: #555;
+	color: white;
 	border-radius: 10px;
 }
 
 input[type=submit] {
-margin-top: 0em;
+	margin-top: 0em;
 	border: 1px solid #dddddd;
 	background-color: #f3f3f3;
 	color: #777777;
@@ -117,11 +116,13 @@ input[type=submit]:hover {
 	border: 1px solid black;
 	color: black;
 }
-.active{
+
+.active {
 	background-color: #555;
-    color: white;
+	color: white;
 	border-radius: 10px;
 }
+
 .compare {
 	font-size: 10px;
 	padding: 5px;
@@ -139,9 +140,10 @@ input[type=submit]:hover {
 	outline: none;
 	box-shadow: 10px 10px 10px #888888;
 }
+
 #CompareBar {
-	padding-left:10px;
-	float:right;
+	padding-left: 10px;
+	float: right;
 }
 
 nav > img {
@@ -153,8 +155,11 @@ nav > img {
 }
 
 main {
-	margin-top: -5em;
 	z-index: 0;
+	width: 100%;
+	margin-top: 5em;
+	height: 100vh;
+	overflow-y: auto;
 }
 
 #loginform {
@@ -238,16 +243,18 @@ form > label {
 	font-size: 1.5em;
 	outline: none;
 	border-radius: 50px;
-	transition: border .5s,color .5s;
+	transition: border .5s, color .5s;
 }
 
 #SearchBar > input[type=submit]:hover {
 	border: 1px solid black;
 	color: black;
 }
+
 ul {
-	    list-style-type: none;
+	list-style-type: none;
 }
+
 #name {
 	font-size: 22px;
 	padding: 15px;
@@ -286,11 +293,9 @@ ul {
 }
 
 footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
+	width: 100%;
+	margin-top: -5em;
+	padding: 1em;
+	background-color: #efefef;
+	text-align: center;
 }
