@@ -11,37 +11,96 @@
 
 <body>
 	<nav> <img id="profile" src="img/profile.png">
-		<div id="navMain"> <a href="index.html">Home</a> <a href="about.html">About</a>
+		<div id="loginform" style="display: none">
+			<form id="login" method="POST" action="/investorsreport/login">
+				<input id="user" type="text" name="username" placeholder="Username">
+				<input id="pass" type="password" name="password" placeholder="Password">
+				<input id="logbtn" type="submit" value="Login" name="login"><br>
+				<a href="signup.html">SignUp</a> 
+				   </form>
+		</div>
+		<div id="navMain"> <a class="tir" href="/investorsreport"><strong>The Investors Report</strong></a>
+
 			<div id="CompareBar">
 				<form id="CompareBar" action="CReport.html" method="GET">
-					<input type="text" id="companyOne" placeholder="Company #1" name="companyOne">
-					<input type="text" id="companyTwo" placeholder="Company #2" name="companyTwo">
-					<input type="submit" value="Compare"> </form>
+					<input type="text" class="compare" id="companyOne" placeholder="Company #1" name="companyOne">
+					<input type="text" class="compare" id="companyTwo" placeholder="Company #2" name="companyTwo">
+					<input type="submit" value="Compare" id="compare1"> </form>
 			</div>
 		</div>
 	</nav>
 	<main>
 		<div id="SearchDiv">
-			<form id="SearchBar" action="report.html" method="GET">
+			<form id="SearchBar" action="JavaScript:searchResults()" method="GET">
 				<h1>The Investors Report</h1>
 				<input type="text" id="name" placeholder="Search for a company" name="company">
 				<p id="error"></p>
 				<input type="submit" value="Search"> </form>
+				
 		</div>
+		
+		<div id="results"></div>
 		<div>
-			<ul>
-				<% for(var i = 0; i < div.length; i++) { %>
-					<li>
-						<p>
-							<%= div[i] %>
-						</p>
-					</li>
-				<% } %> 
-			</ul>
-		</div>	
+                        <ul>
+                                <% for(var i = 0; i < div.length; i++) { %>
+                                        <li>
+                                                <p>
+                                                        <%= div[i] %>
+                                                </p>
+                                        </li>
+                                <% } %>
+                        </ul>
+                </div>
 	</main>
-	<footer> </footer>
+	<footer style="text-align:left">
+		<p><a class="footer" href="about.html">About</a> &nbsp; &nbsp;<span>Copyright ©2017 rganado.ca/investorsreport</span></p>	
+	</footer>
 	<script>
+		function searchResults(){
+	data = document.getElementById("name").value; 
+	$.getJSON("mapping.json", function(res) {
+		
+		var companyName=[], 
+		companySrc=[], 
+		companyTicker=[], 
+		j=0;
+	for (i = 0; i<res.Records.length; i++){
+	
+	 if (res.Records[i].Name.toLowerCase().includes(data.toLowerCase().split("+", 1))){
+			
+		
+		companyTicker[j] = res.Records[i].Ticker; 
+		companyName[j] = res.Records[i].Name;
+		companySrc[j] = "https://logo.clearbit.com/"+res.Records[i].Name.split(" ", 1)+".com";
+		j++;
+	}else if (res.Records[i].Ticker.toLowerCase().includes(data.toLowerCase())) {
+		companyTicker[j] = res.Records[i].Ticker; 
+		companyName[j] = res.Records[i].Name;
+		companySrc[j] = "https://logo.clearbit.com/"+res.Records[i].Name.split(" ", 1)+".com";
+		j++;			
+		}
+		
+		
+  }
+  	if (companyName[0] == null ) {
+	document.getElementById("error").innerHTML="No search results found in our database, try a specific company name or ticker.";
+	document.getElementById("results").innerHTML ="";	
+	}
+	else {
+	document.getElementById("error").innerHTML="";
+	
+	var i;
+		document.getElementById("results").innerHTML = "<h3> Search Results </h3>";
+		for ( i = 0; i < companyName.length; i++){
+		document.getElementById("results").innerHTML += "<a href='report.html?company=" + companyTicker[i]+ "'>" + companyName[i] + "("+ companyTicker[i] +")</a>";
+		}
+
+	}
+	
+	
+});	 
+  }
+		
 		var profile = document.getElementById("profile");
 		profile.onclick = function () {
 			var login = document.getElementById("loginform");
