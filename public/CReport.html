@@ -2,22 +2,17 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>The Investors Report</title>
-  
+	<meta charset="UTF-8">
+	<title>The Investors Report</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/main.css">
- 	<link rel="stylesheet" href="css/report.css">
- 
+	<link rel="stylesheet" href="css/report.css">
 	<script src="js/compare.js"></script>
-	
+</head>
 
-
-	</head>
-
-	<body>
-		<nav id="navBar"> <img class="move" id="profile" src="img/profile.png">
+<body>
+	<nav id="navBar"> <img class="move" id="profile" src="img/profile.png">
 		<div id="loginform" style="display: none">
 			<form id="login" method="POST" action="/investorsreport/login">
 				<input id="user" type="text" name="username" placeholder="Username">
@@ -25,36 +20,39 @@
 				<input id="logbtn" type="submit" value="Login" name="login">
 				<input id="signbtn" type="submit" value="Signup" name="signup"> </form>
 		</div>
-		<div id="navMain">
-		<a class="tir" href="/investorsreport"><strong>The Investors Report</strong></a>
-		<a class="nav" href="about.html">About</a>
-		
-	<div id="SearchDiv">
-			<form id="SearchBar" action="report.html" method="GET">	
-			<input type="text" id="name" placeholder="Try Another Search" name="company">
-			<input type="submit" value="Search"> </form>
-	</div>
-	
+		<div id="navMain"> <a class="tir" href="/investorsreport"><strong>The Investors Report</strong></a> <a class="nav" href="about.html">About</a>
+			<div id="SearchDiv">
+				<form id="SearchBar" action="report.html" method="GET">
+					<input type="text" id="name" placeholder="Try Another Search" name="company">
+					<input type="submit" value="Search"> </form>
+			</div>
 		</div>
-		</nav>
-		<br>
-	<img width="2%" height="2%" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" id="logo" alt="logo">
-		<h1 class="a" id="cname"><h1>
-	<img width="2%" height="2%" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" id="logo2" alt="logo">
-
-		
-   <div>
-   	<h4 id="lastDayTitle"></h4>
-	 <canvas id="lastday" width="700" height="160"></canvas> 	
+	</nav>
+	<br> <img width="2%" height="2%" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" id="logo" alt="logo">
+	<h1 class="a" id="cname"></h1> <img width="2%" height="2%" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" id="logo2" alt="logo">
+	<div>
+		<h4 id="lastDayTitle"></h4>
+		<canvas id="lastday" width="700" height="160"></canvas>
 		<h4 id="highhighTitle"></h4>
-	<canvas id="highhigh" width="900" height="400"></canvas>
+		<canvas id="highhigh" width="900" height="400"></canvas>
 		<h4 id="volumeTitle"></h4>
-	 <canvas id="volume" width="700" height="200"></canvas> 
-	
+		<canvas id="volume" width="700" height="200"></canvas>
 	</div>
-
-
-  
-
+	<script>
+		var profile = document.getElementById("profile");
+		profile.onclick = function () {
+			var login = document.getElementById("loginform");
+			console.log(login.style.display);
+			if (login.style.display !== 'none') {
+				console.log("Change to none");
+				login.style.display = 'none';
+			}
+			else {
+				console.log('Displayed true');
+				login.style.display = 'table';
+			}
+		}
+	</script>
 </body>
+
 </html>

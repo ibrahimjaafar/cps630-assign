@@ -80,6 +80,21 @@
 	<footer style="text-align:left">
 		<p> <a class="nav" href="index.html">Home</a> &nbsp; &nbsp;<a class="nav" href="about.html">About</a> &nbsp; &nbsp;<a class="nav" href="terms.html">Terms</a>&nbsp; &nbsp;<span>Copyright ©2017 rganado.ca/investorsreport</span></p>
 	</footer>
+	<script>
+		var profile = document.getElementById("profile");
+		profile.onclick = function () {
+			var login = document.getElementById("loginform");
+			console.log(login.style.display);
+			if (login.style.display !== 'none') {
+				console.log("Change to none");
+				login.style.display = 'none';
+			}
+			else {
+				console.log('Displayed true');
+				login.style.display = 'table';
+			}
+		}
+	</script>
 </body>
 
 </html>

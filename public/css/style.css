@@ -1,6 +1,7 @@
 html {
 	height: 100%;
 	box-sizing: border-box;
+	overflow-x: hidden;
 }
 
 body {
@@ -167,7 +168,7 @@ main {
 	display: none;
 	position: absolute;
 	top: 4em;
-	left: 0;
+	right: 0;
 	margin: 1em;
 	padding-top: 1em;
 	background-color: #dddddd;
@@ -179,6 +180,17 @@ main {
 	text-align: center;
 	padding: 1em;
 	border: 1px solid #dddddd;
+}
+
+#login:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	right: 0px;
+	top: -30px;
+	border: 15px solid;
+	border-color: transparent transparent #dddddd transparent;
 }
 
 #user,
