@@ -34,13 +34,12 @@ h1 {
 }
 
 section {
-	float: left;
 	text-align: center;
 	border: 1px solid #ccc;
 	background-color: #D6DBDF;
 	margin: 5px;
-	height: 400px;
-	width: 32%;
+	height: 20vw;
+	width: 20vw;
 	font-size: 15px;
 	border-radius: 50px;
 	position: relative;

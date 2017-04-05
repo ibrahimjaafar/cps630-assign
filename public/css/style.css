@@ -182,7 +182,7 @@ main {
 	border: 1px solid #dddddd;
 }
 
-#login:before {
+#loginform:before {
 	content: ' ';
 	position: absolute;
 	width: 0;
