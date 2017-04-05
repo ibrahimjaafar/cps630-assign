@@ -285,9 +285,14 @@ ul {
 	display: inline;
 	text-decoration: none;
 	color: grey;
-	transition: color 1s, background-color 1s, border-radius 1s;
-	background-color: #dddddd;
+	transition: border 0.5s;
+	background-color: #f3f3f3;
+	border: 1px solid #dddddd;
 	border-radius: 10px;
+}
+
+.queries > a:hover {
+	border: 1px solid black;
 }
 
 ::-webkit-input-placeholder {
@@ -309,9 +314,11 @@ ul {
 }
 
 footer {
+	position: relative;
 	width: 100%;
 	margin-top: -5em;
 	padding: 1em;
 	background-color: #efefef;
 	text-align: center;
+	z-index: 999;
 }
