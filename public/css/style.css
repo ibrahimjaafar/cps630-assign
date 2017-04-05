@@ -160,6 +160,7 @@ main {
 	margin-top: 5em;
 	height: 100vh;
 	overflow-y: auto;
+	padding-bottom: 5em;
 }
 
 #loginform {
