@@ -56,6 +56,13 @@
 		<p><a class="footer" href="about.html">About</a> &nbsp; &nbsp;<span>Copyright ©2017 rganado.ca/investorsreport</span></p>	
 	</footer>
 	<script>
+		var user = "<%= user %>";
+		var data = "<%= div %>";
+		console.log(user);
+		sessionStorage.setItem("username", user);
+		sessionStorage.setItem("query", data);
+		console.log(sessionStorage.getItem("query"));
+
 		function searchResults(){
 	data = document.getElementById("name").value; 
 	$.getJSON("mapping.json", function(res) {
@@ -92,9 +99,8 @@
 	var i;
 		document.getElementById("results").innerHTML = "<h3> Search Results </h3>";
 		for ( i = 0; i < companyName.length; i++){
-		document.getElementById("results").innerHTML += "<a href='report.html?company=" + companyTicker[i]+ "'>" + companyName[i] + "("+ companyTicker[i] +")</a>";
+		document.getElementById("results").innerHTML += "<a href='report.html?company=" + companyTicker[i] + "&username=" + user + "'>" + companyName[i] + "("+ companyTicker[i] +")</a>";
 		}
-
 	}
 	
 	
