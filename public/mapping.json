@@ -101,11 +101,6 @@
             "Ticker": "MRK"
         },
         {
-            "CIK": "0000789019",
-            "Name": "MICROSOFT CORP",
-            "Ticker": "MSFT"
-        },
-        {
             "CIK": "0000078003",
             "Name": "PFIZER INC",
             "Ticker": "PFE"
@@ -140,11 +135,7 @@
             "Name": "VERIZON COMMUNICATIONS INC",
             "Ticker": "VZ"
         },
-        {
-            "CIK": "0000104169",
-            "Name": "WAL MART STORES INC",
-            "Ticker": "WMT"
-        },
+
         {
             "CIK": "0000034088",
             "Name": "EXXON MOBIL CORP",
@@ -640,11 +631,7 @@
             "Name": "RANDGOLD RESOURCES LTD",
             "Ticker": "GOLD"
         },
-        {
-            "CIK": "0001288776",
-            "Name": "Google Inc.",
-            "Ticker": "GOOG"
-        },
+        
         {
             "CIK": "0001121788",
             "Name": "GARMIN LTD",
@@ -720,11 +707,7 @@
             "Name": "Monster Beverage Corp",
             "Ticker": "MNST"
         },
-        {
-            "CIK": "0000789019",
-            "Name": "MICROSOFT CORP",
-            "Ticker": "MSFT"
-        },
+        
         {
             "CIK": "0000723125",
             "Name": "MICRON TECHNOLOGY INC",
@@ -925,11 +908,7 @@
             "Name": "ALCOA INC",
             "Ticker": "AA"
         },
-        {
-            "CIK": "0000320193",
-            "Name": "APPLE INC",
-            "Ticker": "AAPL"
-        },
+       
         {
             "CIK": "0001551152",
             "Name": "AbbVie Inc.",
