@@ -8,9 +8,7 @@ var crypto = require('crypto');
 var mysql = require('mysql');
 var mysql_info = require('../../mysql.js');
 var connection = mysql.createConnection(mysql_info.info());
-
 app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({
@@ -60,20 +58,20 @@ app.get('/investorsreport', function (req, res) {
 app.get('/investorsreport/index.html', function (req, res) {
 	res.sendFile(__dirname + '/public/index.html');
 });
-app.get('/investorsreport/report.html', function(req, res) {
+app.get('/investorsreport/report.html', function (req, res) {
 	try {
 		var user = req.query.username;
 		var company = req.query.company;
-	} catch (e) {
+	}
+	catch (e) {
 		var user = '';
 		var company = '';
 		throw e;
 	}
-	if (user == '' || company == '') {
-		
-	} else {
+	if (user == '' || company == '') {}
+	else {
 		console.log("UPDATING database query");
-		connection.query('SELECT query FROM users WHERE username = ?', user, function(err, result) {
+		connection.query('SELECT query FROM users WHERE username = ?', user, function (err, result) {
 			if (err) throw err;
 			else {
 				var query = result[0].query;
@@ -83,12 +81,14 @@ app.get('/investorsreport/report.html', function(req, res) {
 				console.log(company);
 				if (query.includes(company)) {
 					console.log("Query already contains company");
-				} else {
+				}
+				else {
 					query.push(company);
-					connection.query('UPDATE users SET query=? WHERE username=?',[query.toString(), user],function(err, result) {
+					connection.query('UPDATE users SET query=? WHERE username=?', [query.toString(), user], function (err, result) {
 						if (err) {
 							throw err;
-						} else {
+						}
+						else {
 							console.log("Update complete");
 						}
 					});
@@ -137,19 +137,21 @@ app.post('/investorsreport/login', function (req, res) {
 	if (req.body.username == '' || req.body.password == '') {
 		res.redirect('back');
 		console.log("Fields cannot be null");
-	} else {
+	}
+	else {
 		console.log('Querying');
 		var user = req.body.username;
 		var pass = req.body.password;
 		console.log(user);
 		console.log(pass);
-		connection.query('SELECT password, salt, query from users where username = ?', user, function(err, result) {
-			if(err) {
+		connection.query('SELECT password, salt, query from users where username = ?', user, function (err, result) {
+			if (err) {
 				console.log("Error Querying");
 				throw err;
-			} else {
+			}
+			else {
 				console.log("Executing Query");
-				if(result.length > 0) {
+				if (result.length > 0) {
 					var resultPass = result[0].password;
 					var resultSalt = result[0].salt;
 					console.log("here");
@@ -158,18 +160,20 @@ app.post('/investorsreport/login', function (req, res) {
 					console.log(resultPass);
 					if (passD == resultPass) {
 						console.log('Successful');
-							var query = result[0].query;
-							query = query.split(",");
+						var query = result[0].query;
+						query = query.split(",");
 						console.log("Query = " + query);
 						res.render('login.ejs', {
-							div: query,
-							user: user
+							div: query
+							, user: user
 						});
 						console.log("COMPLETE");
-					} else {
+					}
+					else {
 						console.log('Unsuccessful');
 					}
-				} else {
+				}
+				else {
 					console.log("Could not find user");
 				}
 			}
@@ -177,26 +181,25 @@ app.post('/investorsreport/login', function (req, res) {
 		res.sendFile(__dirname + '/public/index.html');
 	}
 });
-app.post('/investorsreport/signup', function(req, res) {
+app.post('/investorsreport/signup', function (req, res) {
 	console.log("Adding to database");
 	if (req.body.username == '' || req.body.password == '') {
 		res.redirect('back');
 		console.log("Fields cannot be null");
-	} else {
+	}
+	else {
 		console.log("Inserting data");
 		var user = req.body.username;
 		var pass = req.body.password;
 		var spass = saltHashPassword(pass);
 		console.log(spass.passwordHash);
 		console.log(spass.salt);
-		connection.query('INSERT INTO users (username, password, salt) VALUES (?, ?, ?)', [user,spass.passwordHash,spass.salt], function(err, result) {
-			if (err) {
-			} else {
-			}
+		connection.query('INSERT INTO users (username, password, salt) VALUES (?, ?, ?)', [user, spass.passwordHash, spass.salt], function (err, result) {
+			if (err) {}
+			else {}
 		});
 	}
 	res.sendFile(__dirname + '/public/index.html');
-
 });
 app.listen(process.env.PORT || 3001, function () {
 	console.log('Listening on port' + (process.env.PORT || 3001))
