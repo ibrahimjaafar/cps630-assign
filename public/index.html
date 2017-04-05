@@ -17,6 +17,7 @@
 				<input id="pass" type="password" name="password" placeholder="Password">
 				<input id="logbtn" type="submit" value="Login" name="login">
 				<br> <a href="signup.html">Register</a> </form>
+			<button id="signout" onclick="signout()" style="display: none">Sign Out</button>
 		</div>
 		<div id="navMain"> <a class="tir" href="/investorsreport"><strong>The Investors Report</strong></a>
 			<div id="CompareBar">
@@ -86,14 +87,23 @@
 		profile.onclick = function () {
 			var login = document.getElementById("loginform");
 			console.log(login.style.display);
-			if (login.style.display !== 'none') {
-				console.log("Change to none");
-				login.style.display = 'none';
+			if (sessionStorage.getItem('username')) {
+				document.getElementById('signout').style.display = 'block';
 			}
 			else {
-				console.log('Displayed true');
-				login.style.display = 'table';
+				if (login.style.display !== 'none') {
+					console.log("Change to none");
+					login.style.display = 'none';
+					document.getElementById('signout').style.display = 'none';
+				}
+				else {
+					console.log('Displayed true');
+					login.style.display = 'table';
+				}
 			}
+		}
+		signout() {
+			sessionStorage.clear();
 		}
 	</script>
 </body>
