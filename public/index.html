@@ -41,6 +41,12 @@
 		<p><a class="footer" href="about.html">About</a> &nbsp; &nbsp;<span>Copyright ©2017 rganado.ca/investorsreport</span></p>
 	</footer>
 	<script>
+		window.onload = function () {
+			if (sessionStorage.getItem('username')) {
+				window.location.replace("/investorsreport/login?username=" + sessionStorage.getItem('username'));
+			}
+		};
+
 		function searchResults() {
 			data = document.getElementById("name").value;
 			$.getJSON("mapping.json", function (res) {
