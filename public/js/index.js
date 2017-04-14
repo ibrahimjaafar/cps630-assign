@@ -58,20 +58,20 @@ function getData(company) {
 				, datasets: [
 					{
 						label: "High"
-						, backgroundColor: "rgba(38,36,39,0.8)"
-						, borderColor: "rgba(38,36,36,1)"
+						, backgroundColor: "rgba(74, 102, 68,1)"
+						, borderColor: "rgba(74, 102, 68,1)"
 						, borderWidth: 2
-						, hoverBackgroundColor: "rgba(38,36,32,0.7)"
-						, hoverBorderColor: "rgba(38,36,32,1)"
+						, hoverBackgroundColor: "rgba(74, 102, 68,0.7)"
+						, hoverBorderColor: "rgba(74, 102, 68,1)"
 						, data: [resp.dataset.data[6][2], resp.dataset.data[5][2], resp.dataset.data[4][2], resp.dataset.data[3][2], resp.dataset.data[2][2], resp.dataset.data[1][2], resp.dataset.data[0][2]]
         , }
 					, {
 						label: "Low"
-						, backgroundColor: "rgba(38,36,39,0.2)"
-						, borderColor: "rgba(38,36,36,1)"
+						, backgroundColor: "rgba(239, 82, 67, 1)"
+						, borderColor: "rgba(239, 82, 67,1)"
 						, borderWidth: 2
-						, hoverBackgroundColor: "rgba(38,36,32,0.4)"
-						, hoverBorderColor: "rgba(38,36,32,1)"
+						, hoverBackgroundColor: "rgba(239, 82, 67,0.7)"
+						, hoverBorderColor: "rgba(239, 82, 67,1)"
 						, data: [resp.dataset.data[6][3], resp.dataset.data[5][3], resp.dataset.data[4][3], resp.dataset.data[3][3], resp.dataset.data[2][3], resp.dataset.data[1][3], resp.dataset.data[0][3]]
 				, }
 			]
@@ -94,11 +94,11 @@ function getData(company) {
 				, datasets: [
 					{
 						label: "Volume"
-						, backgroundColor: "rgba(38,36,39,0.8)"
-						, borderColor: "rgba(38,36,36,1)"
+						, backgroundColor: "rgba(56, 40, 160,0.8)"
+						, borderColor: "rgba(56, 40, 160,1)"
 						, borderWidth: 2
-						, hoverBackgroundColor: "rgba(38,36,32,0.7)"
-						, hoverBorderColor: "rgba(38,36,32,1)"
+						, hoverBackgroundColor: "rgba(56, 40, 160,0.7)"
+						, hoverBorderColor: "rgba(56, 40, 160,1)"
 						, data: [resp.dataset.data[6][12], resp.dataset.data[5][12], resp.dataset.data[4][12], resp.dataset.data[3][12], resp.dataset.data[2][12], resp.dataset.data[1][12], resp.dataset.data[0][12]]
         , }
 
@@ -131,10 +131,10 @@ function getData(company) {
 					{
 						label: "Close price"
 						, backgroundColor: "rgba(0,0,0,0)"
-						, borderColor: "rgba(38,36,36,1)"
+						, borderColor: "rgba(255, 2, 15,1)"
 						, borderWidth: 2
-						, hoverBackgroundColor: "rgba(38,36,32,0.7)"
-						, hoverBorderColor: "rgba(38,36,32,0.6)"
+						, hoverBackgroundColor: "rgba(255, 2, 15,0.7)"
+						, hoverBorderColor: "rgba(255, 2, 15,0.6)"
 						, data: [resp.dataset.data[14][4], resp.dataset.data[13][4]
 			, resp.dataset.data[12][4], resp.dataset.data[11][4]
 			, resp.dataset.data[10][4], resp.dataset.data[9][4]
@@ -146,10 +146,10 @@ function getData(company) {
 					, {
 						label: "Adj Close price"
 						, backgroundColor: "rgba(255,255,255,0)"
-						, borderColor: "rgba(38,36,36,0.3)"
+						, borderColor: "rgba(13, 68, 66,1)"
 						, borderWidth: 2
-						, hoverBackgroundColor: "rgba(38,36,32,0.7)"
-						, hoverBorderColor: "rgba(38,36,32,1)"
+						, hoverBackgroundColor: "rgba(13, 68, 66,0.7)"
+						, hoverBorderColor: "rgba(13, 68, 66,1)"
 						, data: [resp.dataset.data[14][11], resp.dataset.data[13][11]
 			, resp.dataset.data[12][11], resp.dataset.data[11][11]
 			, resp.dataset.data[10][11], resp.dataset.data[9][11]
@@ -182,8 +182,8 @@ function getData(company) {
 				, datasets: [{
 					label: "in USD"
 					, data: [resp.dataset.data[0][1], resp.dataset.data[0][2], resp.dataset.data[0][3], resp.dataset.data[0][4]]
-					, backgroundColor: ["#111111", "#111111", "#111111", "#111111"]
-					, hoverBackgroundColor: ["#333333", "#333333", "#333333", "#333333"]
+					, backgroundColor: ["#fc7c05", "#fc7c05", "#fc7c05", "#fc7c05"]
+					, hoverBackgroundColor: ["#ff9635", "#ff9635", "#ff9635", "#ff9635"]
 			}]
 			};
 			var lastdaychart = new Chart(lastdaygraph, {
