@@ -253,7 +253,7 @@ function getData(company) {
 				else if(percep==1)
 					document.getElementById("perceptronTitle").innerHTML="There will be a large change in stock price tomorrow";
 				else
-					document.getElementById("perceptronTitle").inner="There is no prediction at this time";
+					document.getElementById("perceptronTitle").innerHTML="There is no prediction at this time";
 			}
 		}
 	}
