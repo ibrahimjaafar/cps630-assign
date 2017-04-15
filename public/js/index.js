@@ -1,4 +1,4 @@
-var companyName, companySrc, companyTicker;
+var companyName, companySrc, companyTicker, resp;
 window.onload = function () {
 	var url = document.location.href
 		, params = url.split('?')[1].split('&')
@@ -46,7 +46,6 @@ function getData(company) {
 	var api = "https://www.quandl.com/api/v3/datasets/WIKI/" + company + ".json?&api_key=dBzpDKhzBgcGovsMFx-f";
 	var xmlhttp = new XMLHttpRequest();
 	var xmlhttp2 = new XMLHttpRequest();
-	var resp;
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
 			resp = JSON.parse(xmlhttp.responseText);
@@ -247,6 +246,15 @@ function getData(company) {
 				summmary = "The average change in stock for the past seven days is" + change + ", therefore decreasing";
 			}
 			//document.getElementById("summary").innerHTML = summary;
+			var percep=Perceptron();
+			if(percep){
+				if(percep==0)
+					document.getElementById("perceptronTitle").innerHTML = "There will be a small change in stock price tomorrow";
+				else if(percep==1)
+					document.getElementById("perceptronTitle").innerHTML="There will be a large change in stock price tomorrow";
+				else
+					document.getElementById("perceptronTitle").inner="There is no prediction at this time";
+			}
 		}
 	}
 	xmlhttp.open("GET", api, true);
@@ -299,5 +307,85 @@ function getNews(company) {
 			//alert("Could not load news articles");
 		});
 	});
+}
+
+function Perceptron() {
+    var MAX_ITER = 100;
+    var LEARNING_RATE = 0.1;
+    var NUM_INSTANCES = 100;
+    var theta = 0;
+	
+    
+        var x = new Array(NUM_INSTANCES);
+        var y = new Array(NUM_INSTANCES);
+        var z = new Array(NUM_INSTANCES);
+        var outputs = new Array(NUM_INSTANCES);
+        
+        for (var i1 = 0; i1 < (NUM_INSTANCES / 2) ; i1++) {
+            x[i1] = resp.dataset.data[i1][1];
+            y[i1] = resp.dataset.data[i1][2];
+            z[i1] = resp.dataset.data[i1][3];
+            outputs[i1] = 1;
+            //document.write(x[i1] + "\t" + y[i1] + "\t" + outputs[i1]);
+        }
+        for (var i2 = 50; i2 < (NUM_INSTANCES) ; i2++) {
+            x[i2] = resp.dataset.data[i2][1];
+            y[i2] = resp.dataset.data[i2][2];
+            z[i2] = resp.dataset.data[i2][3];
+            outputs[i2] = 1;
+            //document.write(x[i2] + "\t" + y[i2] + "\t" + outputs[i2]);
+        }
+        var weights = new Array(4);
+        var localError;
+        var globalError;
+        var i;
+        var p;
+        var iteration;
+        var output;
+
+        weights[0] = randomNumber(0, 1);
+        weights[1] = randomNumber(0, 1);
+        weights[2] = randomNumber(0, 1);
+        weights[3] = randomNumber(0, 1);
+//alert("a");
+        iteration = 0;
+        do {
+            iteration++;
+            globalError = 0;
+            for (p = 0; p < NUM_INSTANCES;p++){
+                output = calculateOutput(theta, weights, x[p], y[p], z[p]);
+                localError = outputs[p] - output;
+                weights[0] += LEARNING_RATE * localError * x[p];
+                weights[1] += LEARNING_RATE * localError * y[p];
+                weights[2] += LEARNING_RATE * localError * z[p];
+                weights[3] += LEARNING_RATE * localError;
+                globalError += (localError * localError);
+            }
+            //document.write("Iteration " + iteration + " : RMSE  " + Math.sqrt(globalError / NUM_INSTANCES));
+
+        } while (globalError !== 0 && iteration <= MAX_ITER);
+        //document.write("\n=======\nDecision boundary equation:");
+        //document.write(weights[0] + "*x + " + weights[1] + "*y +  " + weights[2] + "*z + " + weights[3] + " = 0");
+        for (var j = 0; j < 10; j++) {
+            var x1 = randomNumber(-10, 10);
+            var y1 = randomNumber(-10, 10);
+            var z1 = randomNumber(-10, 10);
+            output = calculateOutput(theta, weights, x1, y1, z1);
+            //console.log("\n=======\nNew Random Point:");
+            //console.log("x = " + x1 + ",y = " + y1 + ",z = " + z1);
+            //console.log("class = " + output);
+        }
+		return output;
+    
+}
+function randomNumber(min,max){
+    var d = min + Math.random() * (max - min);
+    //var s = ('' + d);
+    //var x = javaemul.internal.DoubleHelper.parseDouble(s);
+    return d;
+}
+function calculateOutput(theta, weights,x,y,z){
+    var sum = x* weights[0] + y*weights[1]+z*weights[2]+weights[3];
+    return (sum>=theta)?1:0;
 }
 //getData();
