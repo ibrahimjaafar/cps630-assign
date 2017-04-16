@@ -1,12 +1,8 @@
 html {
 	height: 100%;
 	box-sizing: border-box;
-	
 }
-body{
-	color: white;
-	background-color: #111111;
-}
+
 header {
 	display: block;
 	text-align: center;
