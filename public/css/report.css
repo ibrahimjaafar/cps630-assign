@@ -10,6 +10,7 @@
 
 #news {
 	padding-top: 1em;
+	color:#111111;
 }
 
 table {
@@ -22,6 +23,7 @@ td,
 th {
 	border: 1px solid #dddddd;
 	text-align: left;
+	color: #777777;
 	padding: 8px;
 }
 
@@ -267,4 +269,5 @@ footer {
 	background-color: #efefef;
 	text-align: center;
 	z-index: 999;
+	background-color:#111111;
 }
