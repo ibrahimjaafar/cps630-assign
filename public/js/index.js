@@ -249,9 +249,9 @@ function getData(company) {
 			var percep=Perceptron();
 			if(percep){
 				if(percep==0)
-					document.getElementById("perceptronTitle").innerHTML = "There will be a small change in stock price tomorrow";
+					document.getElementById("perceptronTitle").innerHTML = "Tomorrows stock predictor: May be a larger change in stock price tomorrow";
 				else if(percep==1)
-					document.getElementById("perceptronTitle").innerHTML="There will be a large change in stock price tomorrow";
+					document.getElementById("perceptronTitle").innerHTML="Tomorrows stock predictor: May be a larger change in stock price tomorrow";
 				else
 					document.getElementById("perceptronTitle").innerHTML="There is no prediction at this time";
 			}
